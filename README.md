@@ -1,4 +1,4 @@
-java-common
+java-commons
 ============
 Helper utilities for core Java classes.
 

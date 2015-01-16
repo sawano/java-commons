@@ -26,10 +26,10 @@
         <version>9</version>
     </parent>
     <groupId>se.sawano.java</groupId>
-    <artifactId>java-commons</artifactId>
+    <artifactId>commons</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>java-commons</name>
+    <name>commons</name>
     <description>Helper utilities for core Java classes</description>
     <url>https://github.com/sawano/java-commons</url>
     <licenses>
