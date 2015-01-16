@@ -23,11 +23,17 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
+ * Utility methods for performing assertions. The exceptions thrown when an assertion fails is of the type {@link se.sawano.java.commons.lang.ValidationException} so that it can be distinguished from
+ * other exceptions that may occur within a piece of code. For example, if using the assertions in a Design by Contract (DbC) fashion then being able to separate exceptions caused by contract
+ * violation from other exceptions is very helpful.
+ *
+ * <p>This class is written in such a way that it is easy to customize to use custom exceptions. (See the internal factory methods that are responsible for creating the exceptions)</p>
+ *
  * <p>All exceptions messages are format strings as defined by the Java platform (see {@link java.util.Formatter}). For example:</p>
  * <pre>
- * Validate.isTrue(i &gt; 0, "The value must be greater than zero: %d", i);
- * Validate.notNull(surname, "The surname must not be %s", null);
+ * Validate.isTrue(age > 20, "Must be older than %d years", 20);
  * </pre>
+ *
  * <p>This class is thread safe</p>
  *
  * @see java.lang.String#format(String, Object...)
@@ -283,8 +289,7 @@ public class Validate {
     }
 
     /**
-     * <p>Validate that the specified argument is not {@code null}; otherwise throwing an exception with the specified message.
-     * <p>
+     * <p>Validate that the specified argument is not {@code null}; otherwise throwing an exception with the specified message. <p/>
      * <pre>Validate.notNull(myObject, "The object must not be null");</pre>
      *
      * @param <T>
@@ -313,8 +318,7 @@ public class Validate {
     //---------------------------------------------------------------------------------
 
     /**
-     * <p>Validate that the specified argument array is neither {@code null} nor a length of zero (no elements); otherwise throwing an exception with the specified message.
-     * <p>
+     * <p>Validate that the specified argument array is neither {@code null} nor a length of zero (no elements); otherwise throwing an exception with the specified message. <p/>
      * <pre>Validate.notEmpty(myArray, "The array must not be empty");</pre>
      *
      * @param <T>
@@ -345,11 +349,9 @@ public class Validate {
     }
 
     /**
-     * <p>Validate that the specified argument array is neither {@code null} nor a length of zero (no elements); otherwise throwing an exception.
-     * <p>
+     * <p>Validate that the specified argument array is neither {@code null} nor a length of zero (no elements); otherwise throwing an exception. <p/>
      * <pre>Validate.notEmpty(myArray);</pre>
-     * <p>
-     * <p>The message in the exception is &quot;The validated array is empty&quot;.
+     * <p/> <p>The message in the exception is &quot;The validated array is empty&quot;.
      *
      * @param <T>
      *         the array type
@@ -372,8 +374,7 @@ public class Validate {
     //---------------------------------------------------------------------------------
 
     /**
-     * <p>Validate that the specified argument collection is neither {@code null} nor a size of zero (no elements); otherwise throwing an exception with the specified message.
-     * <p>
+     * <p>Validate that the specified argument collection is neither {@code null} nor a size of zero (no elements); otherwise throwing an exception with the specified message. <p/>
      * <pre>Validate.notEmpty(myCollection, "The collection must not be empty");</pre>
      *
      * @param <T>
@@ -429,8 +430,7 @@ public class Validate {
     //---------------------------------------------------------------------------------
 
     /**
-     * <p>Validate that the specified argument map is neither {@code null} nor a size of zero (no elements); otherwise throwing an exception with the specified message.
-     * <p>
+     * <p>Validate that the specified argument map is neither {@code null} nor a size of zero (no elements); otherwise throwing an exception with the specified message. <p/>
      * <pre>Validate.notEmpty(myMap, "The map must not be empty");</pre>
      *
      * @param <T>
@@ -486,8 +486,7 @@ public class Validate {
     //---------------------------------------------------------------------------------
 
     /**
-     * <p>Validate that the specified argument character sequence is neither {@code null} nor a length of zero (no characters); otherwise throwing an exception with the specified message.
-     * <p>
+     * <p>Validate that the specified argument character sequence is neither {@code null} nor a length of zero (no characters); otherwise throwing an exception with the specified message. <p/>
      * <pre>Validate.notEmpty(myString, "The string must not be empty");</pre>
      *
      * @param <T>
@@ -544,8 +543,7 @@ public class Validate {
 
     /**
      * <p>Validate that the specified argument character sequence is neither {@code null}, a length of zero (no characters), empty nor whitespace; otherwise throwing an exception with the specified
-     * message.
-     * <p>
+     * message. <p/>
      * <pre>Validate.notBlank(myString, "The string must not be blank");</pre>
      *
      * @param <T>
@@ -924,8 +922,7 @@ public class Validate {
 
     /**
      * <p>Validate that the stateful condition is {@code true}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
-     * expression, such as validating a primitive number or using your own custom validation expression.</p>
-     * <p>
+     * expression, such as validating a primitive number or using your own custom validation expression.</p> <p/>
      * <pre>Validate.validState(this.isOk(), "The state is not OK: %s", myObject);</pre>
      *
      * @param expression
@@ -1002,8 +999,7 @@ public class Validate {
     //---------------------------------------------------------------------------------
 
     /**
-     * <p>Validate that the specified argument object fall between the two inclusive values specified; otherwise, throws an exception.</p>
-     * <p>
+     * <p>Validate that the specified argument object fall between the two inclusive values specified; otherwise, throws an exception.</p> <p/>
      * <pre>Validate.inclusiveBetween(0, 2, 1);</pre>
      *
      * @param <T>
@@ -1029,8 +1025,7 @@ public class Validate {
     }
 
     /**
-     * <p>Validate that the specified argument object fall between the two inclusive values specified; otherwise, throws an exception with the specified message.</p>
-     * <p>
+     * <p>Validate that the specified argument object fall between the two inclusive values specified; otherwise, throws an exception with the specified message.</p> <p/>
      * <pre>Validate.inclusiveBetween(0, 2, 1, "Not in boundaries");</pre>
      *
      * @param <T>
@@ -1062,8 +1057,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception.
-     * <p>
+     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception. <p/>
      * <pre>Validate.inclusiveBetween(0, 2, 1);</pre>
      *
      * @param start
@@ -1086,8 +1080,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception with the specified message.
-     * <p>
+     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception with the specified message. <p/>
      * <pre>Validate.inclusiveBetween(0, 2, 1, "Not in range");</pre>
      *
      * @param start
@@ -1112,8 +1105,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception.
-     * <p>
+     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception. <p/>
      * <pre>Validate.inclusiveBetween(0.1, 2.1, 1.1);</pre>
      *
      * @param start
@@ -1134,8 +1126,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception with the specified message.
-     * <p>
+     * Validate that the specified primitive value falls between the two inclusive values specified; otherwise, throws an exception with the specified message. <p/>
      * <pre>Validate.inclusiveBetween(0.1, 2.1, 1.1, "Not in range");</pre>
      *
      * @param start
@@ -1163,8 +1154,7 @@ public class Validate {
     //---------------------------------------------------------------------------------
 
     /**
-     * <p>Validate that the specified argument object fall between the two exclusive values specified; otherwise, throws an exception.</p>
-     * <p>
+     * <p>Validate that the specified argument object fall between the two exclusive values specified; otherwise, throws an exception.</p> <p/>
      * <pre>Validate.exclusiveBetween(0, 2, 1);</pre>
      *
      * @param <T>
@@ -1192,8 +1182,7 @@ public class Validate {
     }
 
     /**
-     * <p>Validate that the specified argument object fall between the two exclusive values specified; otherwise, throws an exception with the specified message.</p>
-     * <p>
+     * <p>Validate that the specified argument object fall between the two exclusive values specified; otherwise, throws an exception with the specified message.</p> <p/>
      * <pre>Validate.exclusiveBetween(0, 2, 1, "Not in boundaries");</pre>
      *
      * @param <T>
@@ -1225,8 +1214,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception.
-     * <p>
+     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception. <p/>
      * <pre>Validate.exclusiveBetween(0, 2, 1);</pre>
      *
      * @param start
@@ -1249,8 +1237,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception with the specified message.
-     * <p>
+     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception with the specified message. <p/>
      * <pre>Validate.exclusiveBetween(0, 2, 1, "Not in range");</pre>
      *
      * @param start
@@ -1273,8 +1260,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception.
-     * <p>
+     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception. <p/>
      * <pre>Validate.exclusiveBetween(0.1, 2.1, 1.1);</pre>
      *
      * @param start
@@ -1298,8 +1284,7 @@ public class Validate {
     }
 
     /**
-     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception with the specified message.
-     * <p>
+     * Validate that the specified primitive value falls between the two exclusive values specified; otherwise, throws an exception with the specified message. <p/>
      * <pre>Validate.exclusiveBetween(0.1, 2.1, 1.1, "Not in range");</pre>
      *
      * @param start
@@ -1349,8 +1334,7 @@ public class Validate {
 
     /**
      * <p>Validate that the argument is an instance of the specified class; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary
-     * class</p>
-     * <p>
+     * class</p> <p/>
      * <pre>Validate.isInstanceOf(OkClass.classs, object, "Wrong class, object is of class %s",
      *   object.getClass().getName());</pre>
      *
@@ -1516,8 +1500,7 @@ public class Validate {
     private static class StringUtils {
 
         /**
-         * <p>Checks if a CharSequence is whitespace, empty ("") or null.</p>
-         * <p>
+         * <p>Checks if a CharSequence is whitespace, empty ("") or null.</p> <p/>
          * <pre>
          * StringUtils.isBlank(null)      = true
          * StringUtils.isBlank("")        = true
@@ -1572,8 +1555,7 @@ public class Validate {
         /**
          * <p>Copies the given array and adds the given element at the end of the new array.</p> <p> <p>The new array contains the same elements of the input array plus the given element in the last
          * position. The component type of the new array is the same as that of the input array.</p> <p> <p>If the input array is {@code null}, a new one element array is returned whose component type
-         * is the same as the element, unless the element itself is null, in which case the return type is Object[]</p>
-         * <p>
+         * is the same as the element, unless the element itself is null, in which case the return type is Object[]</p> <p/>
          * <pre>
          * ArrayUtils.add(null, null)      = [null]
          * ArrayUtils.add(null, "a")       = ["a"]
@@ -1614,8 +1596,7 @@ public class Validate {
 
         /**
          * <p>Adds all the elements of the given arrays into a new array.</p> <p>The new array contains all of the element of {@code array1} followed by all of the elements {@code array2}. When an
-         * array is returned, it is always a new array.</p>
-         * <p>
+         * array is returned, it is always a new array.</p> <p/>
          * <pre>
          * ArrayUtils.addAll(null, null)     = null
          * ArrayUtils.addAll(array1, null)   = cloned copy of array1
