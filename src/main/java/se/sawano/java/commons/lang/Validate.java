@@ -24,8 +24,8 @@ import java.util.regex.Pattern;
 
 /**
  * Utility methods for performing assertions. The exceptions thrown when an assertion fails is of the type {@link se.sawano.java.commons.lang.ValidationException} so that it can be distinguished from
- * other exceptions that may occur within a piece of code. For example, if using the assertions in a Design by Contract (DbC) fashion then being able to separate exceptions caused by contract
- * violation from other exceptions is very helpful.
+ * other exceptions that may occur within a piece of code. For example, if using the assertions in a Design by Contract (DbC) fashion, being able to separate exceptions caused by contract violation
+ * from other exceptions is very helpful.
  *
  * <p>This class is written in such a way that it is easy to customize to use custom exceptions. (See the internal factory methods that are responsible for creating the exceptions)</p>
  *
