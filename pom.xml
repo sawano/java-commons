@@ -29,7 +29,7 @@
     <artifactId>java-commons</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>commons</name>
+    <name>java-commons</name>
     <description>Helper utilities for core Java classes</description>
     <url>https://github.com/sawano/java-commons</url>
     <licenses>
@@ -56,7 +56,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
