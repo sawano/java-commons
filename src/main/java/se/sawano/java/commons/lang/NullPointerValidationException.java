@@ -32,7 +32,4 @@ public class NullPointerValidationException extends ValidationException {
         super(cause);
     }
 
-    public NullPointerValidationException(final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }
