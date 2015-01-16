@@ -4,7 +4,7 @@ Helper utilities for core Java classes.
 
 ##Classes
 
-###se.sawano.java.commons.lang
+###se.sawano.java.commons.lang.Validate
 This class contains utility methods for performing assertions.
 
 The exceptions thrown when an assertion fails is of the type `ValidationException` so that it can be distinguished from other exceptions that may occur within a piece of code.
@@ -14,7 +14,7 @@ This class has been derived from the Apache Commons Lang project and should work
 
 It also features the following enhancements:
 
-- isFalse
+- isFalse() methods
 
     Very useful since you don't need to use negation in your declarations.
 - All methods that checks a value of some sort will return that value.
