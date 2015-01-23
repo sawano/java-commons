@@ -21,3 +21,21 @@ Some of the differences/enhancements to the Apache Commons functionality are:
 - All methods that checks a value of some sort will return that value.
 
     This allows for more fluid code as the assertion does not have to be a separate statement.
+
+##Download
+
+Releases are available at the Maven central repository. Or you can just use the source code directly if you prefer that.
+
+####Maven
+```xml
+<dependency>
+    <groupId>se.sawano.java</groupId>
+    <artifactId>commons</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
+####Gradle
+```groovy
+'se.sawano.java:commons:1.0'
+```
