@@ -17,8 +17,10 @@
 package se.sawano.java.commons.lang;
 
 public class IndexOutOfBoundsValidationException extends ValidationException {
-    public IndexOutOfBoundsValidationException() {
-    }
+
+    private static final long serialVersionUID = -6693584516087062751L;
+
+    public IndexOutOfBoundsValidationException() {}
 
     public IndexOutOfBoundsValidationException(final String message) {
         super(message);

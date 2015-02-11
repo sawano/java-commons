@@ -17,8 +17,10 @@
 package se.sawano.java.commons.lang;
 
 public class NullPointerValidationException extends ValidationException {
-    public NullPointerValidationException() {
-    }
+
+    private static final long serialVersionUID = -2276212423599845804L;
+
+    public NullPointerValidationException() {}
 
     public NullPointerValidationException(final String message) {
         super(message);

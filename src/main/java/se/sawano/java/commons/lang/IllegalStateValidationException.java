@@ -17,8 +17,10 @@
 package se.sawano.java.commons.lang;
 
 public class IllegalStateValidationException extends ValidationException {
-    public IllegalStateValidationException() {
-    }
+
+    private static final long serialVersionUID = 1231463484197592526L;
+
+    public IllegalStateValidationException() {}
 
     public IllegalStateValidationException(final String message) {
         super(message);
