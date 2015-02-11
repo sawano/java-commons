@@ -22,6 +22,11 @@ Some of the differences/enhancements to the Apache Commons functionality are:
 
     This allows for more fluid code as the assertion does not have to be a separate statement.
 
+####Design by Contract utilities
+The classes `Require`, `Ensure`, and `Invariant` in the `se.sawano.java.commons.lang.dbc` package contains exactly the same functionality as `se.sawano.java.commons.lang.Validate` but with
+unique exception types. I.e. of the type `RequirementException`, `EnsuranceException` and `InvarianceException` respectively.
+
+
 ##Download
 
 Releases are available at the Maven central repository. Or you can just use the source code directly if you prefer that.
