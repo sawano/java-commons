@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * other exceptions that may occur within a piece of code. For example, if using the assertions in a Design by Contract (DbC) fashion, being able to separate exceptions caused by contract violation
  * from other exceptions is very helpful.
  *
- * <p>This class is written in such a way that it is easy to customize to use custom exceptions. (See the internal factory methods that are responsible for creating the exceptions)</p>
+ * <p>This class is written in such a way that it is easy to customize to use custom exceptions. (See {@link se.sawano.java.commons.lang.AbstractValidate})</p>
  *
  * <p>All exceptions messages are format strings as defined by the Java platform (see {@link java.util.Formatter}). For example:</p>
  * <pre>
@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
  * <p>This class is thread safe</p>
  *
  * @see java.lang.String#format(String, Object...)
+ * @see se.sawano.java.commons.lang.AbstractValidate
  */
 public class Validate {
 
