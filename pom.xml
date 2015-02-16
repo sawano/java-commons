@@ -26,7 +26,7 @@
     <groupId>se.sawano.java</groupId>
     <artifactId>commons</artifactId>
     <packaging>jar</packaging>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <name>commons</name>
     <description>Helper utilities for core Java classes</description>
     <url>https://github.com/sawano/java-commons</url>
@@ -41,7 +41,7 @@
         <url>git@github.com:sawano/java-commons.git</url>
         <connection>scm:git:git@github.com:sawano/java-commons.git</connection>
         <developerConnection>scm:git:git@github.com:sawano/java-commons.git</developerConnection>
-        <tag>commons-1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
