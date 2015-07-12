@@ -87,7 +87,7 @@
                 <version>2.17</version>
                 <configuration>
                     <!-- Run in Java 6  -->
-                    <jvm>${env.JAVA_HOME}/bin/java</jvm>
+                    <jvm>${env.JAVA6_HOME}/bin/java</jvm>
                 </configuration>
                 <executions>
                     <execution>
