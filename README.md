@@ -50,11 +50,11 @@ Releases are available at the Maven central repository. Or you can just use the 
 <dependency>
     <groupId>se.sawano.java</groupId>
     <artifactId>commons</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 </dependency>
 ```
 
 ####Gradle
 ```groovy
-'se.sawano.java:commons:1.1'
+'se.sawano.java:commons:1.2'
 ```
