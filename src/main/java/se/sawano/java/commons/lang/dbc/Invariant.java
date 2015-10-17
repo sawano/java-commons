@@ -31,6 +31,96 @@ public class Invariant {
 
     private Invariant() {}
 
+    // Method without varargs to increase performance
+    public static <T, V extends Comparable<T>> V exclusiveBetween(final T start, final T end, final V value, final String message) {
+        return INSTANCE.exclusiveBetween(start, end, value, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T, V extends Comparable<T>> V inclusiveBetween(final T start, final T end, final V value, final String message) {
+        return INSTANCE.inclusiveBetween(start, end, value, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T> Class<T> isAssignableFrom(final Class<?> superType, final Class<T> type, final String message) {
+        return INSTANCE.isAssignableFrom(superType, type, message);
+    }
+
+    // Method without varargs to increase performance
+    public static void isFalse(final boolean expression, final String message) {
+        INSTANCE.isFalse(expression, message);
+    }
+
+    // Method without varargs to increase performance
+    public static void isTrue(final boolean expression, final String message) {
+        INSTANCE.isTrue(expression, message);
+    }
+
+    // Method without varargs to increase performance
+    public static CharSequence matchesPattern(final CharSequence input, final String pattern, final String message) {
+        return INSTANCE.matchesPattern(input, pattern, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends Iterable<?>> T noNullElements(final T iterable, final String message) {
+        return INSTANCE.noNullElements(iterable, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T> T[] noNullElements(final T[] array, final String message) {
+        return INSTANCE.noNullElements(array, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends CharSequence> T notBlank(final T chars, final String message) {
+        return INSTANCE.notBlank(chars, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends Collection<?>> T notEmpty(final T collection, final String message) {
+        return INSTANCE.notEmpty(collection, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends Map<?, ?>> T notEmpty(final T map, final String message) {
+        return INSTANCE.notEmpty(map, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends CharSequence> T notEmpty(final T chars, final String message) {
+        return INSTANCE.notEmpty(chars, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T> T[] notEmpty(final T[] array, final String message) {
+        return INSTANCE.notEmpty(array, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T> T notNull(final T object, final String message) {
+        return INSTANCE.notNull(object, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends Collection<?>> T validIndex(final T collection, final int index, final String message) {
+        return INSTANCE.validIndex(collection, index, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T extends CharSequence> T validIndex(final T chars, final int index, final String message) {
+        return INSTANCE.validIndex(chars, index, message);
+    }
+
+    // Method without varargs to increase performance
+    public static <T> T[] validIndex(final T[] array, final int index, final String message) {
+        return INSTANCE.validIndex(array, index, message);
+    }
+
+    // Method without varargs to increase performance
+    public static void validState(final boolean expression, final String message) {
+        INSTANCE.validState(expression, message);
+    }
+
     public static void isTrue(final boolean expression, final String message, final long value) {
         INSTANCE.isTrue(expression, message, value);
     }

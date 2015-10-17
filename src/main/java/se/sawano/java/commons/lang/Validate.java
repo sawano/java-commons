@@ -41,6 +41,450 @@ public class Validate {
 
     private Validate() {}
 
+    // Custom additional methods
+    //---------------------------------------------------------------------------------
+
+    /**
+     * <p>Validate that the specified argument object fall between the two exclusive values specified; otherwise, throws an exception with the specified message.</p>
+     * <pre>Validate.exclusiveBetween(0, 2, 1, "Not in boundaries");</pre>
+     *
+     * @param <T>
+     *         the type of the start and end values
+     * @param <V>
+     *         the type of the object
+     * @param start
+     *         the exclusive start value, not null
+     * @param end
+     *         the exclusive end value, not null
+     * @param value
+     *         the object to validate, not null
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the value
+     *
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if the value falls outside the boundaries
+     * @see #exclusiveBetween(Object, Object, Comparable)
+     */
+    // Method without varargs to increase performance
+    public static <T, V extends Comparable<T>> V exclusiveBetween(final T start, final T end, final V value, final String message) {
+        return INSTANCE.exclusiveBetween(start, end, value, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument object fall between the two inclusive values specified; otherwise, throws an exception with the specified message.</p>
+     * <pre>Validate.inclusiveBetween(0, 2, 1, "Not in boundaries");</pre>
+     *
+     * @param <T>
+     *         the type of the start and end values
+     * @param <V>
+     *         the type of the value
+     * @param start
+     *         the inclusive start value, not null
+     * @param end
+     *         the inclusive end value, not null
+     * @param value
+     *         the object to validate, not null
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the value
+     *
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if the value falls outside the boundaries
+     * @see #inclusiveBetween(Object, Object, Comparable)
+     */
+    // Method without varargs to increase performance
+    public static <T, V extends Comparable<T>> V inclusiveBetween(final T start, final T end, final V value, final String message) {
+        return INSTANCE.inclusiveBetween(start, end, value, message);
+    }
+
+    /**
+     * Validates that the argument can be converted to the specified class, if not throws an exception.<p>This method is useful when validating if there will be no casting errors.</p>
+     * <pre>Validate.isAssignableFrom(SuperClass.class, object.getClass());</pre>
+     * <p>The message of the exception is &quot;The validated object can not be converted to the&quot; followed by the name of the class and &quot;class&quot;</p>
+     *
+     * @param superType
+     *         the class the class must be validated against, not null
+     * @param type
+     *         the class to check, not null
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the object
+     *
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if argument can not be converted to the specified class
+     * @see #isAssignableFrom(Class, Class)
+     */
+    // Method without varargs to increase performance
+    public static <T> Class<T> isAssignableFrom(final Class<?> superType, final Class<T> type, final String message) {
+        return INSTANCE.isAssignableFrom(superType, type, message);
+    }
+
+    /**
+     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if expression is {@code true}
+     * @see #isFalse(boolean)
+     * @see #isFalse(boolean, String, long)
+     * @see #isFalse(boolean, String, double)
+     */
+    // Method without varargs to increase performance
+    public static void isFalse(final boolean expression, final String message) {
+        INSTANCE.isFalse(expression, message);
+    }
+
+    /**
+     * <p>Validate that the argument condition is {@code true}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p>
+     * <pre>
+     * Validate.isTrue(i &gt;= min &amp;&amp; i &lt;= max, "The value must be between &#37;d and &#37;d", min, max);
+     * Validate.isTrue(myObject.isOk(), "The object is not okay");
+     * </pre>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if expression is {@code false}
+     * @see #isTrue(boolean)
+     * @see #isTrue(boolean, String, long)
+     * @see #isTrue(boolean, String, double)
+     */
+    // Method without varargs to increase performance
+    public static void isTrue(final boolean expression, final String message) {
+        INSTANCE.isTrue(expression, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument character sequence matches the specified regular expression pattern; otherwise throwing an exception with the specified message.</p>
+     * <pre>Validate.matchesPattern("hi", "[a-z]*", "%s does not match %s", "hi" "[a-z]*");</pre>
+     * <p>The syntax of the pattern is the one used in the {@link Pattern} class.</p>
+     *
+     * @param input
+     *         the character sequence to validate, not null
+     * @param pattern
+     *         the regular expression pattern, not null
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the input
+     *
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if the character sequence does not match the pattern
+     * @see #matchesPattern(CharSequence, String)
+     */
+    // Method without varargs to increase performance
+    public static CharSequence matchesPattern(final CharSequence input, final String pattern, final String message) {
+        return INSTANCE.matchesPattern(input, pattern, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument iterable is neither {@code null} nor contains any elements that are {@code null}; otherwise throwing an exception with the specified message. <p>
+     * <pre>Validate.noNullElements(myCollection, "The collection contains null at position %d");</pre>
+     * <p> <p>If the iterable is {@code null}, then the message in the exception is &quot;The validated object is null&quot;.</p><p>If the iterable has a {@code null} element, then the iteration index
+     * of the invalid element is appended to the {@code values} argument.</p>
+     *
+     * @param <T>
+     *         the iterable type
+     * @param iterable
+     *         the iterable to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated iterable (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the array is {@code null}
+     * @throws IllegalArgumentException
+     *         if an element is {@code null}
+     * @see #noNullElements(Iterable)
+     */
+    // Method without varargs to increase performance
+    public static <T extends Iterable<?>> T noNullElements(final T iterable, final String message) {
+        return INSTANCE.noNullElements(iterable, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument array is neither {@code null} nor contains any elements that are {@code null}; otherwise throwing an exception with the specified message. <p>
+     * <pre>Validate.noNullElements(myArray, "The array contain null at position %d");</pre>
+     * <p> <p>If the array is {@code null}, then the message in the exception is &quot;The validated object is null&quot;.</p> <p>If the array has a {@code null} element, then the iteration index of
+     * the invalid element is appended to the {@code values} argument.</p>
+     *
+     * @param <T>
+     *         the array type
+     * @param array
+     *         the array to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated array (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the array is {@code null}
+     * @throws IllegalArgumentException
+     *         if an element is {@code null}
+     * @see #noNullElements(Object[])
+     */
+    // Method without varargs to increase performance
+    public static <T> T[] noNullElements(final T[] array, final String message) {
+        return INSTANCE.noNullElements(array, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument character sequence is neither {@code null}, a length of zero (no characters), empty nor whitespace; otherwise throwing an exception with the specified
+     * message.
+     * <pre>Validate.notBlank(myString, "The string must not be blank");</pre>
+     *
+     * @param <T>
+     *         the character sequence type
+     * @param chars
+     *         the character sequence to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated character sequence (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the character sequence is {@code null}
+     * @throws IllegalArgumentException
+     *         if the character sequence is blank
+     * @see #notBlank(CharSequence)
+     */
+    // Method without varargs to increase performance
+    public static <T extends CharSequence> T notBlank(final T chars, final String message) {
+        return INSTANCE.notBlank(chars, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument collection is neither {@code null} nor a size of zero (no elements); otherwise throwing an exception with the specified message.
+     * <pre>Validate.notEmpty(myCollection, "The collection must not be empty");</pre>
+     *
+     * @param <T>
+     *         the collection type
+     * @param collection
+     *         the collection to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated collection (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the collection is {@code null}
+     * @throws IllegalArgumentException
+     *         if the collection is empty
+     * @see #notEmpty(Object[])
+     */
+    // Method without varargs to increase performance
+    public static <T extends Collection<?>> T notEmpty(final T collection, final String message) {
+        return INSTANCE.notEmpty(collection, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument map is neither {@code null} nor a size of zero (no elements); otherwise throwing an exception with the specified message.
+     * <pre>Validate.notEmpty(myMap, "The map must not be empty");</pre>
+     *
+     * @param <T>
+     *         the map type
+     * @param map
+     *         the map to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated map (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the map is {@code null}
+     * @throws IllegalArgumentException
+     *         if the map is empty
+     * @see #notEmpty(Object[])
+     */
+    // Method without varargs to increase performance
+    public static <T extends Map<?, ?>> T notEmpty(final T map, final String message) {
+        return INSTANCE.notEmpty(map, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument character sequence is neither {@code null} nor a length of zero (no characters); otherwise throwing an exception with the specified message.
+     * <pre>Validate.notEmpty(myString, "The string must not be empty");</pre>
+     *
+     * @param <T>
+     *         the character sequence type
+     * @param chars
+     *         the character sequence to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated character sequence (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the character sequence is {@code null}
+     * @throws IllegalArgumentException
+     *         if the character sequence is empty
+     * @see #notEmpty(CharSequence)
+     */
+    // Method without varargs to increase performance
+    public static <T extends CharSequence> T notEmpty(final T chars, final String message) {
+        return INSTANCE.notEmpty(chars, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument array is neither {@code null} nor a length of zero (no elements); otherwise throwing an exception with the specified message.
+     * <pre>Validate.notEmpty(myArray, "The array must not be empty");</pre>
+     *
+     * @param <T>
+     *         the array type
+     * @param array
+     *         the array to check, validated not null by this method
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated array (never {@code null} method for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the array is {@code null}
+     * @throws se.sawano.java.commons.lang.IllegalArgumentValidationException
+     *         if the array is empty
+     * @see #notEmpty(Object[])
+     */
+    // Method without varargs to increase performance
+    public static <T> T[] notEmpty(final T[] array, final String message) {
+        return INSTANCE.notEmpty(array, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument is not {@code null}; otherwise throwing an exception with the specified message.
+     * <pre>Validate.notNull(myObject, "The object must not be null");</pre>
+     *
+     * @param <T>
+     *         the object type
+     * @param object
+     *         the object to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated object (never {@code null} for method chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the object is {@code null}
+     * @see #notNull(Object)
+     */
+    // Method without varargs to increase performance
+    public static <T> T notNull(final T object, final String message) {
+        return INSTANCE.notNull(object, message);
+    }
+
+    /**
+     * <p>Validates that the index is within the bounds of the argument collection; otherwise throwing an exception with the specified message.</p>
+     * <pre>Validate.validIndex(myCollection, 2, "The collection index is invalid: ");</pre>
+     * <p>If the collection is {@code null}, then the message of the exception is &quot;The validated object is null&quot;.</p>
+     *
+     * @param <T>
+     *         the collection type
+     * @param collection
+     *         the collection to check, validated not null by this method
+     * @param index
+     *         the index to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated collection (never {@code null} for chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the collection is {@code null}
+     * @throws IndexOutOfBoundsException
+     *         if the index is invalid
+     * @see #validIndex(Collection, int)
+     */
+    // Method without varargs to increase performance
+    public static <T extends Collection<?>> T validIndex(final T collection, final int index, final String message) {
+        return INSTANCE.validIndex(collection, index, message);
+    }
+
+    /**
+     * <p>Validates that the index is within the bounds of the argument character sequence; otherwise throwing an exception with the specified message.</p>
+     * <pre>Validate.validIndex(myStr, 2, "The string index is invalid: ");</pre>
+     * <p>If the character sequence is {@code null}, then the message of the exception is &quot;The validated object is null&quot;.</p>
+     *
+     * @param <T>
+     *         the character sequence type
+     * @param chars
+     *         the character sequence to check, validated not null by this method
+     * @param index
+     *         the index to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated character sequence (never {@code null} for method chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the character sequence is {@code null}
+     * @throws IndexOutOfBoundsException
+     *         if the index is invalid
+     * @see #validIndex(CharSequence, int)
+     */
+    // Method without varargs to increase performance
+    public static <T extends CharSequence> T validIndex(final T chars, final int index, final String message) {
+        return INSTANCE.validIndex(chars, index, message);
+    }
+
+    /**
+     * <p>Validates that the index is within the bounds of the argument array; otherwise throwing an exception with the specified message.</p>
+     * <pre>Validate.validIndex(myArray, 2, "The array index is invalid: ");</pre>
+     * <p>If the array is {@code null}, then the message of the exception is &quot;The validated object is null&quot;.</p>
+     *
+     * @param <T>
+     *         the array type
+     * @param array
+     *         the array to check, validated not null by this method
+     * @param index
+     *         the index to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @return the validated array (never {@code null} for method chaining)
+     *
+     * @throws se.sawano.java.commons.lang.NullPointerValidationException
+     *         if the array is {@code null}
+     * @throws IndexOutOfBoundsException
+     *         if the index is invalid
+     * @see #validIndex(Object[], int)
+     */
+    // Method without varargs to increase performance
+    public static <T> T[] validIndex(final T[] array, final int index, final String message) {
+        return INSTANCE.validIndex(array, index, message);
+    }
+
+    /**
+     * <p>Validate that the stateful condition is {@code true}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p>
+     * <pre>Validate.validState(this.isOk(), "The state is not OK: %s", myObject);</pre>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *
+     * @throws se.sawano.java.commons.lang.IllegalStateValidationException
+     *         if expression is {@code false}
+     * @see #validState(boolean)
+     */
+    // Method without varargs to increase performance
+    public static void validState(final boolean expression, final String message) {
+        INSTANCE.validState(expression, message);
+    }
+
     // isTrue
     //---------------------------------------------------------------------------------
 

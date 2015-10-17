@@ -52,6 +52,174 @@ public abstract class AbstractValidate<T extends RuntimeException> {
     protected AbstractValidate() {
     }
 
+    //  Methods without varargs
+    //---------------------------------------------------------------------------------
+
+    // Method without varargs to increase performance
+    public <T, V extends Comparable<T>> V exclusiveBetween(final T start, final T end, final V value, final String message) {
+        if (value.compareTo(start) <= 0 || value.compareTo(end) >= 0) {
+            fail(message);
+        }
+        return value;
+    }
+
+    // Method without varargs to increase performance
+    public <T, V extends Comparable<T>> V inclusiveBetween(final T start, final T end, final V value, final String message) {
+        if (value.compareTo(start) < 0 || value.compareTo(end) > 0) {
+            fail(message);
+        }
+        return value;
+    }
+
+    // Method without varargs to increase performance
+    public <T> Class<T> isAssignableFrom(final Class<?> superType, final Class<T> type, final String message) {
+        if (!superType.isAssignableFrom(type)) {
+            fail(message);
+        }
+        return type;
+    }
+
+    // Method without varargs to increase performance
+    public void isFalse(final boolean expression, final String message) {
+        if (expression) {
+            fail(message);
+        }
+    }
+
+    // Method without varargs to increase performance
+    public void isTrue(final boolean expression, final String message) {
+        if (!expression) {
+            fail(message);
+        }
+    }
+
+    // Method without varargs to increase performance
+    public CharSequence matchesPattern(final CharSequence input, final String pattern, final String message) {
+        if (!Pattern.matches(pattern, input)) {
+            fail(message);
+        }
+        return input;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends Iterable<?>> T noNullElements(final T iterable, final String message) {
+        notNull(iterable);
+        final int index = indexOfNullElement(iterable);
+        if (index != -1) {
+            fail(String.format(message, index));
+        }
+
+        return iterable;
+    }
+
+    // Method without varargs to increase performance
+    public <T> T[] noNullElements(final T[] array, final String message) {
+        notNull(array);
+        final int index = indexOfNullElement(array);
+        if (index != -1) {
+            fail(String.format(message, index));
+        }
+
+        return array;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends CharSequence> T notBlank(final T chars, final String message) {
+        if (chars == null) {
+            failNull(message);
+        }
+        if (StringUtils.isBlank(chars)) {
+            fail(message);
+        }
+        return chars;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends Collection<?>> T notEmpty(final T collection, final String message) {
+        if (collection == null) {
+            failNull(message);
+        }
+        if (collection.isEmpty()) {
+            fail(message);
+        }
+        return collection;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends Map<?, ?>> T notEmpty(final T map, final String message) {
+        if (map == null) {
+            failNull(message);
+        }
+        if (map.isEmpty()) {
+            fail(message);
+        }
+        return map;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends CharSequence> T notEmpty(final T chars, final String message) {
+        if (chars == null) {
+            failNull(message);
+        }
+        if (chars.length() == 0) {
+            fail(message);
+        }
+        return chars;
+    }
+
+    // Method without varargs to increase performance
+    public <T> T[] notEmpty(final T[] array, final String message) {
+        if (array == null) {
+            failNull(message);
+        }
+        if (array.length == 0) {
+            fail(message);
+        }
+        return array;
+    }
+
+    // Method without varargs to increase performance
+    public <T> T notNull(final T object, final String message) {
+        if (object == null) {
+            failNull(message);
+        }
+        return object;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends Collection<?>> T validIndex(final T collection, final int index, final String message) {
+        notNull(collection);
+        if (index < 0 || index >= collection.size()) {
+            failIndexOutOfBounds(message);
+        }
+        return collection;
+    }
+
+    // Method without varargs to increase performance
+    public <T extends CharSequence> T validIndex(final T chars, final int index, final String message) {
+        notNull(chars);
+        if (index < 0 || index >= chars.length()) {
+            failIndexOutOfBounds(message);
+        }
+        return chars;
+    }
+
+    // Method without varargs to increase performance
+    public <T> T[] validIndex(final T[] array, final int index, final String message) {
+        notNull(array);
+        if (index < 0 || index >= array.length) {
+            failIndexOutOfBounds(message);
+        }
+        return array;
+    }
+
+    // Method without varargs to increase performance
+    public void validState(final boolean expression, final String message) {
+        if (!expression) {
+            failIllegalState(message);
+        }
+    }
+
     // isTrue
     //---------------------------------------------------------------------------------
 
@@ -612,11 +780,9 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      */
     public <T> T[] noNullElements(final T[] array, final String message, final Object... values) {
         notNull(array);
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
-                final Object[] values2 = ArrayUtils.add(values, i, this);
-                fail(String.format(message, values2));
-            }
+        final int index = indexOfNullElement(array);
+        if (index != -1) {
+            fail(String.format(message, ArrayUtils.add(values, index, this)));
         }
         return array;
     }
@@ -672,13 +838,11 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      */
     public <T extends Iterable<?>> T noNullElements(final T iterable, final String message, final Object... values) {
         notNull(iterable);
-        int i = 0;
-        for (final Iterator<?> it = iterable.iterator(); it.hasNext(); i++) {
-            if (it.next() == null) {
-                final Object[] values2 = ArrayUtils.addAll(this, values, i);
-                fail(String.format(message, values2));
-            }
+        final int index = indexOfNullElement(iterable);
+        if (index != -1) {
+            fail(String.format(message, ArrayUtils.addAll(this, values, index)));
         }
+
         return iterable;
     }
 
@@ -1400,6 +1564,45 @@ public abstract class AbstractValidate<T extends RuntimeException> {
             fail(String.format(message, values));
         }
         return type;
+    }
+
+    /**
+     * Returns the index of the first null element, or {@code -1} if no null element was found.
+     *
+     * @param iterable
+     *         the iterable to check for null elements
+     * @param <T>
+     *         the type of the iterable
+     *
+     * @return the index of the first null element, or {@code -1} if no null element was found
+     */
+    private static <T extends Iterable<?>> int indexOfNullElement(T iterable) {
+        final Iterator<?> it = iterable.iterator();
+        for (int i = 0; it.hasNext(); i++) {
+            if (it.next() == null) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Returns the index of the first null element, or {@code -1} if no null element was found.
+     *
+     * @param array
+     *         the array to check for null elements
+     * @param <T>
+     *         the type of the array elements
+     *
+     * @return the index of the first null element, or {@code -1} if no null element was found
+     */
+    private static <T> int indexOfNullElement(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == null) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void fail(final String message) {
