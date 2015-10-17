@@ -79,10 +79,10 @@ public class RequireTest {
 
     @Test
     public void should_verify_not_null() {
-        Require.notNull(new Object(), "Cannot be %s", null);
+        Require.notNull(new Object(), "Cannot be %s", "null");
 
         try {
-            Require.notNull(null, "Cannot be %s", null);
+            Require.notNull(null, "Cannot be %s", "null");
             fail();
         } catch (final NullPointerRequirementException ex) {
             assertEquals("Cannot be null", ex.getMessage());

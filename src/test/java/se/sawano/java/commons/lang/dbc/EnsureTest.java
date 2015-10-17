@@ -17,14 +17,11 @@
 package se.sawano.java.commons.lang.dbc;
 
 import org.junit.Test;
-import se.sawano.java.commons.lang.*;
 
 import java.util.*;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
-import static java.util.Collections.emptyMap;
-import static java.util.Collections.singletonList;
+import static java.util.Collections.*;
 import static org.junit.Assert.*;
 
 public class EnsureTest {
@@ -82,10 +79,10 @@ public class EnsureTest {
 
     @Test
     public void should_verify_not_null() {
-        Ensure.notNull(new Object(), "Cannot be %s", null);
+        Ensure.notNull(new Object(), "Cannot be %s", "null");
 
         try {
-            Ensure.notNull(null, "Cannot be %s", null);
+            Ensure.notNull(null, "Cannot be %s", "null");
             fail();
         } catch (final NullPointerEnsuranceException ex) {
             assertEquals("Cannot be null", ex.getMessage());

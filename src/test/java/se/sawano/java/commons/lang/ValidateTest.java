@@ -82,10 +82,10 @@ public class ValidateTest {
 
     @Test
     public void should_verify_not_null() {
-        Validate.notNull(new Object(), "Cannot be %s", null);
+        Validate.notNull(new Object(), "Cannot be %s", "null");
 
         try {
-            Validate.notNull(null, "Cannot be %s", null);
+            Validate.notNull(null, "Cannot be %s", "null");
             fail();
         } catch (final NullPointerValidationException ex) {
             assertEquals("Cannot be null", ex.getMessage());
