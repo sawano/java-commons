@@ -758,8 +758,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
     /**
      * <p>Validate that the specified argument array is neither {@code null} nor contains any elements that are {@code null}; otherwise throwing an exception with the specified message.</p>
      * <pre>Validate.noNullElements(myArray, "The array contain null at position %d");</pre>
-     * <p>If the array is {@code null}, then the message in the exception is &quot;The validated object is null&quot;.</p> <p> <p>If the array has a {@code null} element, then the iteration index of
-     * the invalid element is appended to the {@code values} argument.</p>
+     * <p>If the array is {@code null}, then the message in the exception is &quot;The validated object is null&quot;.</p> <p>If the array has a {@code null} element, then the iteration index of the
+     * invalid element is appended to the {@code values} argument.</p>
      *
      * @param <T>
      *         the array type
@@ -790,8 +790,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
     /**
      * <p>Validate that the specified argument array is neither {@code null} nor contains any elements that are {@code null}; otherwise throwing an exception.</p>
      * <pre>Validate.noNullElements(myArray);</pre>
-     * <p>If the array is {@code null}, then the message in the exception is &quot;The validated object is null&quot;.</p> <p> <p>If the array has a {@code null} element, then the message in the
-     * exception is &quot;The validated array contains null element at index: &quot; followed by the index.</p>
+     * <p>If the array is {@code null}, then the message in the exception is &quot;The validated object is null&quot;.</p> <p>If the array has a {@code null} element, then the message in the exception
+     * is &quot;The validated array contains null element at index: &quot; followed by the index.</p>
      *
      * @param <T>
      *         the array type
@@ -1157,6 +1157,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *
      * @param <T>
      *         the type of the start and end values
+     * @param <V>
+     *         the type of the argument
      * @param start
      *         the inclusive start value, not null
      * @param end
@@ -1267,6 +1269,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *         the inclusive end value
      * @param value
      *         the value to validate
+     *
+     * @return the value
      *
      * @throws IllegalArgumentValidationException
      *         if the value falls outside the boundaries (inclusive)
@@ -1402,6 +1406,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      * @param message
      *         the exception message if invalid, not null
      *
+     * @return the value
+     *
      * @throws IllegalArgumentValidationException
      *         if the value falls outside the boundaries
      */
@@ -1449,6 +1455,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      * @param message
      *         the exception message if invalid, not null
      *
+     * @return the value
+     *
      * @throws IllegalArgumentValidationException
      *         if the value falls outside the boundaries
      */
@@ -1463,10 +1471,12 @@ public abstract class AbstractValidate<T extends RuntimeException> {
     //---------------------------------------------------------------------------------
 
     /**
-     * Validates that the argument is an instance of the specified class, if not throws an exception. <p> <p>This method is useful when validating according to an arbitrary class</p> <p>
+     * Validates that the argument is an instance of the specified class, if not throws an exception. <p>This method is useful when validating according to an arbitrary class</p>
      * <pre>Validate.isInstanceOf(OkClass.class, object);</pre>
-     * <p> <p>The message of the exception is &quot;Expected type: {type}, actual: {obj_type}&quot;</p>
+     * <p>The message of the exception is &quot;Expected type: {type}, actual: {obj_type}&quot;</p>
      *
+     * @param <T>
+     *         the type of the object
      * @param type
      *         the class the object must be validated against, not null
      * @param obj
@@ -1491,6 +1501,8 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      * <pre>Validate.isInstanceOf(OkClass.classs, object, "Wrong class, object is of class %s",
      *   object.getClass().getName());</pre>
      *
+     * @param <T>
+     *         the type of the object to check
      * @param type
      *         the class the object must be validated against, not null
      * @param obj
@@ -1517,10 +1529,12 @@ public abstract class AbstractValidate<T extends RuntimeException> {
     //---------------------------------------------------------------------------------
 
     /**
-     * Validates that the argument can be converted to the specified class, if not, throws an exception. <p> <p>This method is useful when validating that there will be no casting errors.</p> <p>
+     * Validates that the argument can be converted to the specified class, if not, throws an exception. <p>This method is useful when validating that there will be no casting errors.</p>
      * <pre>Validate.isAssignableFrom(SuperClass.class, object.getClass());</pre>
-     * <p> <p>The message format of the exception is &quot;Cannot assign {type} to {superType}&quot;</p>
+     * <p>The message format of the exception is &quot;Cannot assign {type} to {superType}&quot;</p>
      *
+     * @param <T>
+     *         the type of the class to check
      * @param superType
      *         the class the class must be validated against, not null
      * @param type
@@ -1540,10 +1554,12 @@ public abstract class AbstractValidate<T extends RuntimeException> {
     }
 
     /**
-     * Validates that the argument can be converted to the specified class, if not throws an exception. <p> <p>This method is useful when validating if there will be no casting errors.</p> <p>
+     * Validates that the argument can be converted to the specified class, if not throws an exception. <p>This method is useful when validating if there will be no casting errors.</p>
      * <pre>Validate.isAssignableFrom(SuperClass.class, object.getClass());</pre>
-     * <p> <p>The message of the exception is &quot;The validated object can not be converted to the&quot; followed by the name of the class and &quot;class&quot;</p>
+     * <p>The message of the exception is &quot;The validated object can not be converted to the&quot; followed by the name of the class and &quot;class&quot;</p>
      *
+     * @param <T>
+     *         the type of the class to check
      * @param superType
      *         the class the class must be validated against, not null
      * @param type
@@ -1553,7 +1569,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      * @param values
      *         the optional values for the formatted exception message, null array not recommended
      *
-     * @return the object
+     * @return the class
      *
      * @throws IllegalArgumentValidationException
      *         if argument can not be converted to the specified class
