@@ -72,13 +72,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <!-- Compile in Java 6  -->
-                    <source>1.6</source>
-                    <target>1.6</target>
-                    <compilerArguments>
-                        <bootclasspath>${env.JAVA6_HOME}/../Classes/classes.jar</bootclasspath>
-                    </compilerArguments>
-                    <executable>${env.JAVA6_HOME}/bin/javac</executable>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
@@ -86,10 +81,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.17</version>
-                <configuration>
-                    <!-- Run in Java 6  -->
-                    <jvm>${env.JAVA6_HOME}/bin/java</jvm>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -117,11 +108,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.10.1</version>
-                <configuration>
-                    <!-- Run in Java 6  -->
-                    <javadocExecutable>${env.JAVA6_HOME}/bin/javadoc</javadocExecutable>
-                    <bootclasspath>${env.JAVA6_HOME}/../Classes/classes.jar</bootclasspath>
-                </configuration>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
