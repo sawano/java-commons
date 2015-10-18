@@ -2,6 +2,7 @@ java-commons
 ============
 Helper utilities for core Java classes.
 
+Note: java-commons v1.x, which is Java 6 compatible, can be found [here](https://github.com/sawano/java-commons/tree/1.x).
 
 ##Classes
 
@@ -33,29 +34,21 @@ The classes `Require`, `Ensure`, and `Invariant` in the `se.sawano.java.commons.
 but with unique exception types. I.e. of the type `RequirementException`, `EnsuranceException` and `InvarianceException` respectively. The naming convention is borrowing terms form the Eiffel 
 programming language and the principles of [Design by Contract](https://docs.eiffel.com/book/method/et-design-contract-tm-assertions-and-exceptions).
 
-####Java version compatibility
-The binaries available at Maven central is compiled with Java 6 to provide maximum bytecode compatibility.
-
 ####Are the validation utilities reliable?
 Yes, the code is a fork of the Apache commons lib with essentially no changes in validation logic except for addition of new functionality. Once could even say that these utilities provides even 
 greater confidence than the Apache commons counterparts since there are holes in the test coverage in the Apache commons library. These gaps are not present in 
 the `se.sawano.java.commons.lang.validate.Validate` code since there is more extensive test coverage in this project. Also, as noted above, this lib has slightly better performance than the Apache 
 commons lib.
 
+###se.sawano.java.commons.lang.Comparable
+An extension of `java.lang.Comparable` that adds readable methods for checking equality. I.e. instead of doing int comparisons like `compareTo(that) < 0` you can write code like `isLessThan(that)`.
+
+##Java version compatibility
+As of version 2, java-commons is compiled with Java 8. Java 6 compatible binaries remains in the 1.x branch. I.e. all 1.x versions will continue to be Java 6 compatible and available from Maven
+Central.
+
 ##Download
 
 Releases are available at the Maven central repository. Or you can just use the source code directly if you prefer that.
 
-####Maven
-```xml
-<dependency>
-    <groupId>se.sawano.java</groupId>
-    <artifactId>commons</artifactId>
-    <version>1.2</version>
-</dependency>
-```
-
-####Gradle
-```groovy
-'se.sawano.java:commons:1.2'
-```
+The first release of version 2.0 has not been released yet. Please use the latest [v1 release](https://github.com/sawano/java-commons/tree/1.x).
