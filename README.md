@@ -1,8 +1,8 @@
+#java-commons
+
 [![][maven img]][maven]
 [![][release img]][release]
 [![][license img]][license]
-
-#java-commons
 
 Helper utilities for core Java classes.
 
