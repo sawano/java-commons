@@ -1,5 +1,9 @@
-java-commons
-============
+[![][maven img]][maven]
+[![][release img]][release]
+[![][license img]][license]
+
+#java-commons
+
 Helper utilities for core Java classes.
 
 Note: java-commons v1.x, which is Java 6 compatible, can be found [here](https://github.com/sawano/java-commons/tree/1.x).
