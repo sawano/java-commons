@@ -33,6 +33,10 @@ The classes `Require`, `Ensure`, and `Invariant` in the `se.sawano.java.commons.
 but with unique exception types. I.e. of the type `RequirementException`, `EnsuranceException` and `InvarianceException` respectively. The naming convention is borrowing terms form the Eiffel 
 programming language and the principles of [Design by Contract](https://docs.eiffel.com/book/method/et-design-contract-tm-assertions-and-exceptions).
 
+####Hystrix specific validation utilities
+The class `se.sawano.java.commons.lang.validate.hystrix.HystrixValidate` contains exactly the same functionality as the standard `Validate` except that all exceptions thrown will inherit from
+[HystrixBadRequestException](http://netflix.github.io/Hystrix/javadoc/com/netflix/hystrix/exception/HystrixBadRequestException.html).
+
 ####Java version compatibility
 The binaries available at Maven central is compiled with Java 6 to provide maximum bytecode compatibility.
 
