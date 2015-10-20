@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sawano/java-commons.svg?branch=master)](https://travis-ci.org/sawano/java-commons)
+
 #java-commons
 
 Helper utilities for core Java classes.
