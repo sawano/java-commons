@@ -65,5 +65,7 @@ The first release of version 2.0 has not been released yet. Please use the lates
 [travis img]:https://travis-ci.org/sawano/java-commons.svg?branch=master
 [maven]:http://search.maven.org/#search|gav|1|g:"se.sawano.java"%20AND%20a:"commons"
 [maven img]:https://maven-badges.herokuapp.com/maven-central/se.sawano.java/commons/badge.svg
+[release]:https://github.com/sawano/java-commons/releases
+[release img]:https://img.shields.io/github/release/sawano/java-commons.svg
 [license]:LICENSE
 [license img]:https://img.shields.io/badge/License-Apache%202-blue.svg
