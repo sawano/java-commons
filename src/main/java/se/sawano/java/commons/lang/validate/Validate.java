@@ -16,6 +16,8 @@
 
 package se.sawano.java.commons.lang.validate;
 
+import se.sawano.java.commons.lang.validate.exception.*;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.regex.Pattern;

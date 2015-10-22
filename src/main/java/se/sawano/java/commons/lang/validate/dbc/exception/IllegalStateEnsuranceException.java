@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.dbc;
+package se.sawano.java.commons.lang.validate.dbc.exception;
 
 public class IllegalStateEnsuranceException extends EnsuranceException {
 

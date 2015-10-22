@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.hystrix;
+package se.sawano.java.commons.lang.validate.hystrix.exception;
 
 import com.netflix.hystrix.exception.HystrixBadRequestException;
 
-public class IllegalStateHystrixBadRequestException extends HystrixBadRequestException {
+public class IllegalArgumentHystrixBadRequestException extends HystrixBadRequestException {
 
-    private static final long serialVersionUID = -7513201954210776754L;
+    private static final long serialVersionUID = -4834224846072907132L;
 
-    public IllegalStateHystrixBadRequestException(final String message) {
+    public IllegalArgumentHystrixBadRequestException(final String message) {
         super(message);
     }
 
-    public IllegalStateHystrixBadRequestException(final String message, final Throwable cause) {
+    public IllegalArgumentHystrixBadRequestException(final String message, final Throwable cause) {
         super(message, cause);
     }
 

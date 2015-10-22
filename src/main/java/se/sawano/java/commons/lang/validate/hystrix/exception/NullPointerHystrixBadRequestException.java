@@ -14,24 +14,20 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate;
+package se.sawano.java.commons.lang.validate.hystrix.exception;
 
-public class IndexOutOfBoundsValidationException extends ValidationException {
+import com.netflix.hystrix.exception.HystrixBadRequestException;
 
-    private static final long serialVersionUID = -6693584516087062751L;
+public class NullPointerHystrixBadRequestException extends HystrixBadRequestException {
 
-    public IndexOutOfBoundsValidationException() {}
+    private static final long serialVersionUID = -2882206668357301906L;
 
-    public IndexOutOfBoundsValidationException(final String message) {
+    public NullPointerHystrixBadRequestException(final String message) {
         super(message);
     }
 
-    public IndexOutOfBoundsValidationException(final String message, final Throwable cause) {
+    public NullPointerHystrixBadRequestException(final String message, final Throwable cause) {
         super(message, cause);
-    }
-
-    public IndexOutOfBoundsValidationException(final Throwable cause) {
-        super(cause);
     }
 
 }

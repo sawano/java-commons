@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.dbc;
+package se.sawano.java.commons.lang.validate.dbc.exception;
 
-public class IllegalStateInvarianceException extends InvarianceException {
+public class IndexOutOfBoundsInvarianceException extends InvarianceException {
 
-    private static final long serialVersionUID = -8993604807742260119L;
+    private static final long serialVersionUID = 3231917627963748361L;
 
-    public IllegalStateInvarianceException() {}
+    public IndexOutOfBoundsInvarianceException() {}
 
-    public IllegalStateInvarianceException(final String message) {
+    public IndexOutOfBoundsInvarianceException(final String message) {
         super(message);
     }
 
-    public IllegalStateInvarianceException(final String message, final Throwable cause) {
+    public IndexOutOfBoundsInvarianceException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public IllegalStateInvarianceException(final Throwable cause) {
+    public IndexOutOfBoundsInvarianceException(final Throwable cause) {
         super(cause);
     }
 

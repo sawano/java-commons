@@ -17,6 +17,10 @@
 package se.sawano.java.commons.lang.validate.dbc;
 
 import org.junit.Test;
+import se.sawano.java.commons.lang.validate.dbc.exception.IllegalArgumentInvarianceException;
+import se.sawano.java.commons.lang.validate.dbc.exception.IllegalStateInvarianceException;
+import se.sawano.java.commons.lang.validate.dbc.exception.IndexOutOfBoundsInvarianceException;
+import se.sawano.java.commons.lang.validate.dbc.exception.NullPointerInvarianceException;
 
 import java.util.*;
 

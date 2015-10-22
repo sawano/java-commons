@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.hystrix;
+package se.sawano.java.commons.lang.validate.dbc.exception;
 
-import com.netflix.hystrix.exception.HystrixBadRequestException;
+public class IllegalArgumentInvarianceException extends InvarianceException {
 
-public class NullPointerHystrixBadRequestException extends HystrixBadRequestException {
+    private static final long serialVersionUID = 8819671649476529275L;
 
-    private static final long serialVersionUID = -2882206668357301906L;
+    public IllegalArgumentInvarianceException() {}
 
-    public NullPointerHystrixBadRequestException(final String message) {
+    public IllegalArgumentInvarianceException(final String message) {
         super(message);
     }
 
-    public NullPointerHystrixBadRequestException(final String message, final Throwable cause) {
+    public IllegalArgumentInvarianceException(final String message, final Throwable cause) {
         super(message, cause);
+    }
+
+    public IllegalArgumentInvarianceException(final Throwable cause) {
+        super(cause);
     }
 
 }

@@ -17,10 +17,9 @@
 package se.sawano.java.commons.lang.validate;
 
 import org.junit.Test;
-import se.sawano.java.commons.lang.validate.IllegalArgumentValidationException;
-import se.sawano.java.commons.lang.validate.IndexOutOfBoundsValidationException;
-import se.sawano.java.commons.lang.validate.NullPointerValidationException;
-import se.sawano.java.commons.lang.validate.Validate;
+import se.sawano.java.commons.lang.validate.exception.IllegalArgumentValidationException;
+import se.sawano.java.commons.lang.validate.exception.IndexOutOfBoundsValidationException;
+import se.sawano.java.commons.lang.validate.exception.NullPointerValidationException;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;

@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.dbc;
+package se.sawano.java.commons.lang.validate.exception;
 
-public class NullPointerRequirementException extends RequirementException {
+public class IllegalStateValidationException extends ValidationException {
 
-    private static final long serialVersionUID = 2663003575091411573L;
+    private static final long serialVersionUID = 1231463484197592526L;
 
-    public NullPointerRequirementException() {}
+    public IllegalStateValidationException() {}
 
-    public NullPointerRequirementException(final String message) {
+    public IllegalStateValidationException(final String message) {
         super(message);
     }
 
-    public NullPointerRequirementException(final String message, final Throwable cause) {
+    public IllegalStateValidationException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public NullPointerRequirementException(final Throwable cause) {
+    public IllegalStateValidationException(final Throwable cause) {
         super(cause);
     }
 

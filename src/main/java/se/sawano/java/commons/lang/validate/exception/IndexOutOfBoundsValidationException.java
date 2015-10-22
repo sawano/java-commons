@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate;
+package se.sawano.java.commons.lang.validate.exception;
 
-public class IllegalStateValidationException extends ValidationException {
+public class IndexOutOfBoundsValidationException extends ValidationException {
 
-    private static final long serialVersionUID = 1231463484197592526L;
+    private static final long serialVersionUID = -6693584516087062751L;
 
-    public IllegalStateValidationException() {}
+    public IndexOutOfBoundsValidationException() {}
 
-    public IllegalStateValidationException(final String message) {
+    public IndexOutOfBoundsValidationException(final String message) {
         super(message);
     }
 
-    public IllegalStateValidationException(final String message, final Throwable cause) {
+    public IndexOutOfBoundsValidationException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public IllegalStateValidationException(final Throwable cause) {
+    public IndexOutOfBoundsValidationException(final Throwable cause) {
         super(cause);
     }
 

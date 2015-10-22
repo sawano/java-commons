@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.dbc;
+package se.sawano.java.commons.lang.validate.dbc.exception;
 
-public class NullPointerEnsuranceException extends EnsuranceException {
+public class RequirementException extends RuntimeException {
 
-    private static final long serialVersionUID = 3898505226858244673L;
+    private static final long serialVersionUID = -7150554899363398850L;
 
-    public NullPointerEnsuranceException() {}
+    public RequirementException() {}
 
-    public NullPointerEnsuranceException(final String message) {
+    public RequirementException(final String message) {
         super(message);
     }
 
-    public NullPointerEnsuranceException(final String message, final Throwable cause) {
+    public RequirementException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public NullPointerEnsuranceException(final Throwable cause) {
+    public RequirementException(final Throwable cause) {
         super(cause);
     }
 

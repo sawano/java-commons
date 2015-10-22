@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.dbc;
+package se.sawano.java.commons.lang.validate.dbc.exception;
 
-public class IndexOutOfBoundsEnsuranceException extends EnsuranceException {
+public class NullPointerInvarianceException extends InvarianceException {
 
-    private static final long serialVersionUID = -5303021234024913587L;
+    private static final long serialVersionUID = -4936326285996528153L;
 
-    public IndexOutOfBoundsEnsuranceException() {}
+    public NullPointerInvarianceException() {}
 
-    public IndexOutOfBoundsEnsuranceException(final String message) {
+    public NullPointerInvarianceException(final String message) {
         super(message);
     }
 
-    public IndexOutOfBoundsEnsuranceException(final String message, final Throwable cause) {
+    public NullPointerInvarianceException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public IndexOutOfBoundsEnsuranceException(final Throwable cause) {
+    public NullPointerInvarianceException(final Throwable cause) {
         super(cause);
     }
 

@@ -17,6 +17,9 @@
 package se.sawano.java.commons.lang.validate.hystrix;
 
 import org.junit.Test;
+import se.sawano.java.commons.lang.validate.hystrix.exception.IllegalArgumentHystrixBadRequestException;
+import se.sawano.java.commons.lang.validate.hystrix.exception.IndexOutOfBoundsHystrixBadRequestException;
+import se.sawano.java.commons.lang.validate.hystrix.exception.NullPointerHystrixBadRequestException;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;

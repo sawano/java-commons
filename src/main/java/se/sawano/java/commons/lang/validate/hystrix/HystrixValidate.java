@@ -19,6 +19,10 @@ package se.sawano.java.commons.lang.validate.hystrix;
 import com.netflix.hystrix.exception.HystrixBadRequestException;
 import se.sawano.java.commons.lang.validate.AbstractValidate;
 import se.sawano.java.commons.lang.validate.Validate;
+import se.sawano.java.commons.lang.validate.hystrix.exception.IllegalArgumentHystrixBadRequestException;
+import se.sawano.java.commons.lang.validate.hystrix.exception.IllegalStateHystrixBadRequestException;
+import se.sawano.java.commons.lang.validate.hystrix.exception.IndexOutOfBoundsHystrixBadRequestException;
+import se.sawano.java.commons.lang.validate.hystrix.exception.NullPointerHystrixBadRequestException;
 
 import java.util.Collection;
 import java.util.Map;

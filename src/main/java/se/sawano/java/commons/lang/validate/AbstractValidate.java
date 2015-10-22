@@ -16,6 +16,10 @@
 
 package se.sawano.java.commons.lang.validate;
 
+import se.sawano.java.commons.lang.validate.exception.IllegalArgumentValidationException;
+import se.sawano.java.commons.lang.validate.exception.IllegalStateValidationException;
+import se.sawano.java.commons.lang.validate.exception.NullPointerValidationException;
+
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
@@ -1770,7 +1774,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
          *         the object to add, may be {@code null}
          *
          * @return A new array containing the existing elements plus the new element The returned array type will be that of the input array (unless null), in which case it will have the same type as
-         * the element. If both are null, an se.sawano.java.commons.lang.validate.IllegalArgumentValidationException is thrown
+         * the element. If both are null, an se.sawano.java.commons.lang.validate.exception.IllegalArgumentValidationException is thrown
          *
          * @throws IllegalArgumentValidationException
          *         if both arguments are null

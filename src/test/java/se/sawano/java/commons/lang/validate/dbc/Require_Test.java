@@ -17,6 +17,9 @@
 package se.sawano.java.commons.lang.validate.dbc;
 
 import org.junit.Test;
+import se.sawano.java.commons.lang.validate.dbc.exception.IllegalArgumentRequirementException;
+import se.sawano.java.commons.lang.validate.dbc.exception.IndexOutOfBoundsRequirementException;
+import se.sawano.java.commons.lang.validate.dbc.exception.NullPointerRequirementException;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;

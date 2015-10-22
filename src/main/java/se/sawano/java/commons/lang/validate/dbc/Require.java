@@ -18,13 +18,14 @@ package se.sawano.java.commons.lang.validate.dbc;
 
 import se.sawano.java.commons.lang.validate.AbstractValidate;
 import se.sawano.java.commons.lang.validate.Validate;
+import se.sawano.java.commons.lang.validate.dbc.exception.*;
 
 import java.util.Collection;
 import java.util.Map;
 
 /**
- * Utility methods for performing assertions. This class is identical to {@link Validate} except that the exceptions thrown when an assertion fails is of the type {@link
- * RequirementException}. Please see {@link Validate} for documentation.
+ * Utility methods for performing assertions. This class is identical to {@link Validate} except that the exceptions thrown when an assertion fails is of the type {@link RequirementException}. Please
+ * see {@link Validate} for documentation.
  *
  * @see Validate
  */

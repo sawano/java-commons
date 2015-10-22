@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate;
+package se.sawano.java.commons.lang.validate.exception;
 
 public class NullPointerValidationException extends ValidationException {
 

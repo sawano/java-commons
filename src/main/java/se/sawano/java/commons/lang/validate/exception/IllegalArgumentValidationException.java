@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package se.sawano.java.commons.lang.validate.dbc;
+package se.sawano.java.commons.lang.validate.exception;
 
-public class IllegalStateRequirementException extends RequirementException {
+public class IllegalArgumentValidationException extends ValidationException {
 
-    private static final long serialVersionUID = 6373304940088994067L;
+    private static final long serialVersionUID = -526122126310777992L;
 
-    public IllegalStateRequirementException() {}
+    public IllegalArgumentValidationException() {}
 
-    public IllegalStateRequirementException(final String message) {
+    public IllegalArgumentValidationException(final String message) {
         super(message);
     }
 
-    public IllegalStateRequirementException(final String message, final Throwable cause) {
+    public IllegalArgumentValidationException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public IllegalStateRequirementException(final Throwable cause) {
+    public IllegalArgumentValidationException(final Throwable cause) {
         super(cause);
     }
 
