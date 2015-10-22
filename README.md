@@ -1,6 +1,8 @@
 #java-commons
-[![Build Status](https://travis-ci.org/sawano/java-commons.svg?branch=master)](https://travis-ci.org/sawano/java-commons)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.sawano.java/commons/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.sawano.java/commons)
+[![][travis img]][travis]
+[![][maven img]][maven]
+[![][release img]][release]
+[![][license img]][license]
 
 Helper utilities for core Java classes.
 
@@ -58,3 +60,10 @@ Central.
 Releases are available at the Maven central repository. Or you can just use the source code directly if you prefer that.
 
 The first release of version 2.0 has not been released yet. Please use the latest [v1 release](https://github.com/sawano/java-commons/tree/1.x).
+
+[travis]:https://travis-ci.org/sawano/java-commons
+[travis img]:https://travis-ci.org/sawano/java-commons.svg?branch=master
+[maven]:http://search.maven.org/#search|gav|1|g:"se.sawano.java"%20AND%20a:"commons"
+[maven img]:https://maven-badges.herokuapp.com/maven-central/se.sawano.java/commons/badge.svg
+[license]:LICENSE
+[license img]:https://img.shields.io/badge/License-Apache%202-blue.svg
