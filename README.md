@@ -2,6 +2,7 @@ java-commons
 ============
 Helper utilities for core Java classes.
 
+This the home for v1.x, which is Java 6 compatible. For java-commons v2.x go [here](https://github.com/sawano/java-commons).
 
 ##Classes
 
@@ -38,7 +39,7 @@ The class `se.sawano.java.commons.lang.validate.hystrix.HystrixValidate` contain
 [HystrixBadRequestException](http://netflix.github.io/Hystrix/javadoc/com/netflix/hystrix/exception/HystrixBadRequestException.html).
 
 ####Java version compatibility
-The binaries available at Maven central is compiled with Java 6 to provide maximum bytecode compatibility.
+The binaries available at Maven central for all 1.x versions are compiled with Java 6 to provide maximum bytecode compatibility.
 
 ####Are the validation utilities reliable?
 Yes, the code is a fork of the Apache commons lib with essentially no changes in validation logic except for addition of new functionality. Once could even say that these utilities provides even 
