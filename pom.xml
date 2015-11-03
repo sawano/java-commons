@@ -61,8 +61,10 @@
             <groupId>com.netflix.hystrix</groupId>
             <artifactId>hystrix-core</artifactId>
             <version>1.4.18</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
+            <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
