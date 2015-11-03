@@ -8,9 +8,10 @@ Helper utilities for core Java classes.
 
 Note: java-commons v1.x, which is Java 6 compatible, can be found [here](https://github.com/sawano/java-commons/tree/1.x).
 
-##Classes
+##Functionality
 
-###se.sawano.java.commons.lang.validate.Validate
+###Validation and contracts
+####se.sawano.java.commons.lang.validate.Validate
 This class contains utility methods for performing assertions. It's main purpose is to provide exceptions specific to validation errors, and to work as a drop in
 replacement for `org.apache.commons.lang3.Validate`.
 
@@ -48,8 +49,13 @@ greater confidence than the Apache commons counterparts since there are holes in
 the `se.sawano.java.commons.lang.validate.Validate` code since there is more extensive test coverage in this project. Also, as noted above, this lib has slightly better performance than the Apache 
 commons lib.
 
-###se.sawano.java.commons.lang.Comparable
+###Sorting and comparing
+####se.sawano.java.commons.lang.Comparable
 An extension of `java.lang.Comparable` that adds readable methods for checking equality. I.e. instead of doing int comparisons like `compareTo(that) < 0` you can write code like `isLessThan(that)`.
+
+###Functional Java
+####se.sawano.java.commons.lang.Optionals
+Utility methods for working with `java.util.Optional`.
 
 ##Java version compatibility
 As of version 2, java-commons is compiled with Java 8. Java 6 compatible binaries remains in the 1.x branch. I.e. all 1.x versions will continue to be Java 6 compatible and available from Maven
