@@ -61,7 +61,7 @@ public class Validate {
      * @param value
      *         the object to validate, not null
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the value
      *
@@ -89,7 +89,7 @@ public class Validate {
      * @param value
      *         the object to validate, not null
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the value
      *
@@ -114,7 +114,7 @@ public class Validate {
      * @param type
      *         the class to check, not null
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the class
      *
@@ -134,7 +134,7 @@ public class Validate {
      * @param expression
      *         the boolean expression to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @throws IllegalArgumentValidationException
      *         if expression is {@code true}
@@ -158,7 +158,7 @@ public class Validate {
      * @param expression
      *         the boolean expression to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @throws IllegalArgumentValidationException
      *         if expression is {@code false}
@@ -181,7 +181,7 @@ public class Validate {
      * @param pattern
      *         the regular expression pattern, not null
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the input
      *
@@ -205,7 +205,7 @@ public class Validate {
      * @param iterable
      *         the iterable to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated iterable (never {@code null} method for chaining)
      *
@@ -231,7 +231,7 @@ public class Validate {
      * @param array
      *         the array to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated array (never {@code null} method for chaining)
      *
@@ -256,7 +256,7 @@ public class Validate {
      * @param chars
      *         the character sequence to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated character sequence (never {@code null} method for chaining)
      *
@@ -280,7 +280,7 @@ public class Validate {
      * @param collection
      *         the collection to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated collection (never {@code null} method for chaining)
      *
@@ -304,7 +304,7 @@ public class Validate {
      * @param map
      *         the map to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated map (never {@code null} method for chaining)
      *
@@ -328,7 +328,7 @@ public class Validate {
      * @param chars
      *         the character sequence to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated character sequence (never {@code null} method for chaining)
      *
@@ -352,7 +352,7 @@ public class Validate {
      * @param array
      *         the array to check, validated not null by this method
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated array (never {@code null} method for chaining)
      *
@@ -376,7 +376,7 @@ public class Validate {
      * @param object
      *         the object to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated object (never {@code null} for method chaining)
      *
@@ -401,7 +401,7 @@ public class Validate {
      * @param index
      *         the index to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated collection (never {@code null} for chaining)
      *
@@ -428,7 +428,7 @@ public class Validate {
      * @param index
      *         the index to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated character sequence (never {@code null} for method chaining)
      *
@@ -455,7 +455,7 @@ public class Validate {
      * @param index
      *         the index to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @return the validated array (never {@code null} for method chaining)
      *
@@ -478,7 +478,7 @@ public class Validate {
      * @param expression
      *         the boolean expression to check
      * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     *         the exception message if invalid, not null
      *
      * @throws IllegalStateValidationException
      *         if expression is {@code false}
