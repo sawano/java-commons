@@ -31,12 +31,13 @@ import java.util.regex.Pattern;
  *
  * @see Validate
  */
-public abstract class AbstractValidate<T extends RuntimeException> {
+public abstract class AbstractValidate<S extends RuntimeException> {
 
     private static final String DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE = "The value %s is not in the specified exclusive range of %s to %s";
     private static final String DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE = "The value %s is not in the specified inclusive range of %s to %s";
     private static final String DEFAULT_MATCHES_PATTERN_EX = "The string %s does not match the pattern %s";
     private static final String DEFAULT_IS_NULL_EX_MESSAGE = "The validated object is null";
+    private static final String DEFAULT_NOT_NULL_EX_MESSAGE = "The validated object is not null";
     private static final String DEFAULT_IS_TRUE_EX_MESSAGE = "The validated expression is false";
     private static final String DEFAULT_IS_FALSE_EX_MESSAGE = "The validated expression is true";
     private static final String DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE = "The validated array contains null element at index: %d";
@@ -1258,7 +1259,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      */
     public long inclusiveBetween(long start, long end, long value, String message) {
         if (value < start || value > end) {
-            fail(String.format(message));
+            fail(message);
         }
         return value;
     }
@@ -1306,7 +1307,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      */
     public double inclusiveBetween(double start, double end, double value, String message) {
         if (value < start || value > end) {
-            fail(String.format(message));
+            fail(message);
         }
         return value;
     }
@@ -1417,7 +1418,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      */
     public long exclusiveBetween(long start, long end, long value, String message) {
         if (value <= start || value >= end) {
-            fail(String.format(message));
+            fail(message);
         }
         return value;
     }
@@ -1466,7 +1467,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      */
     public double exclusiveBetween(double start, double end, double value, String message) {
         if (value <= start || value >= end) {
-            fail(String.format(message));
+            fail(message);
         }
         return value;
     }
@@ -1653,7 +1654,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *
      * @return the exception
      */
-    protected abstract T illegalArgument(final String message);
+    protected abstract S illegalArgument(final String message);
 
     /**
      * Factory method for exception used for validation failures caused by a not-null requirement.
@@ -1663,7 +1664,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *
      * @return the exception
      */
-    protected abstract T nullPointer(final String message);
+    protected abstract S nullPointer(final String message);
 
     /**
      * Factory method for exception used for validation failures caused by an index being out of bounds.
@@ -1673,7 +1674,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *
      * @return the exception
      */
-    protected abstract T indexOutOfBounds(final String message);
+    protected abstract S indexOutOfBounds(final String message);
 
     /**
      * Factory method for exception used for validation failures caused by an illegal state.
@@ -1683,7 +1684,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *
      * @return the exception
      */
-    protected abstract T illegalState(final String message);
+    protected abstract S illegalState(final String message);
 
     /**
      * Factory method for exception used for validation failures caused by an index being out of bounds. This is used internally and should generally return the same type of exception as {@link
@@ -1696,7 +1697,7 @@ public abstract class AbstractValidate<T extends RuntimeException> {
      *
      * @return the exception
      */
-    protected abstract T illegalArgument(final Exception e, final String message);
+    protected abstract S illegalArgument(final Exception e, final String message);
 
     // org.apache.commons.lang3.StringUtils
     private static class StringUtils {
