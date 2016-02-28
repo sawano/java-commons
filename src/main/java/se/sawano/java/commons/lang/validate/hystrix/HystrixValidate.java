@@ -128,6 +128,19 @@ public class HystrixValidate {
         INSTANCE.validState(expression, message);
     }
 
+    // Method without varargs to increase performance
+    public static <T> void isNull(final T object, final String message) {
+        INSTANCE.isNull(object, message);
+    }
+
+    public static <T> void isNull(final T object) {
+        INSTANCE.isNull(object);
+    }
+
+    public static <T> void isNull(final T object, final String message, final Object... values) {
+        INSTANCE.isNull(object, message, values);
+    }
+
     public static void isTrue(final boolean expression, final String message, final long value) {
         INSTANCE.isTrue(expression, message, value);
     }

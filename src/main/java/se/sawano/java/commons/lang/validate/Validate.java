@@ -489,6 +489,65 @@ public class Validate {
         INSTANCE.validState(expression, message);
     }
 
+    /**
+     * <p>Validate that the specified argument is {@code null}; otherwise throwing an exception with the specified message.
+     * <pre>Validate.isNull(myObject, "The object must be null");</pre>
+     *
+     * @param <T>
+     *         the object type
+     * @param object
+     *         the object to check
+     * @param message
+     *         the exception message if invalid, not null
+     *
+     * @throws IllegalArgumentValidationException
+     *         if the object is not {@code null}
+     * @see #notNull(Object)
+     */
+    // Method without varargs to increase performance
+    public static <T> void isNull(final T object, final String message) {
+        INSTANCE.isNull(object, message);
+    }
+
+    /**
+     * <p>Validate that the specified argument is {@code null}; otherwise throwing an exception.
+     * <pre>Validate.isNull(myObject, "The object must be null");</pre>
+     * <p>The message of the exception is &quot;The validated object is not null&quot;.</p>
+     *
+     * @param <T>
+     *         the object type
+     * @param object
+     *         the object to check
+     *
+     * @throws IllegalArgumentValidationException
+     *         if the object is not {@code null}
+     * @see #isNull(Object, String, Object...)
+     */
+    public static <T> void isNull(final T object) {
+        INSTANCE.isNull(object);
+    }
+
+    /**
+     * <p>Validate that the specified argument is {@code null}; otherwise throwing an exception with the specified message.
+     * <pre>Validate.isNull(myObject, "The object must be null");</pre>
+     *
+     * @param <T>
+     *         the object type
+     * @param object
+     *         the object to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @param values
+     *         the optional values for the formatted exception message
+     *
+     * @throws IllegalArgumentValidationException
+     *         if the object is not {@code null}
+     * @see #notNull(Object)
+     */
+    public static <T> void isNull(final T object, final String message, final Object... values) {
+        INSTANCE.isNull(object, message, values);
+    }
+
     // isTrue
     //---------------------------------------------------------------------------------
 

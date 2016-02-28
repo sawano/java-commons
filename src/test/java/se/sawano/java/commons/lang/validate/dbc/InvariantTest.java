@@ -98,6 +98,32 @@ public class InvariantTest {
     }
 
     @Test
+    public void should_verify_is_null() {
+        Invariant.isNull(null);
+        Invariant.isNull(null, "Should be %s", "null");
+        Invariant.isNull(null, "Should be null");
+
+        try {
+            Invariant.isNull(new Object(), "Should be %s", "null");
+            fail();
+        } catch (final IllegalArgumentInvarianceException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            Invariant.isNull(new Object(), "Should be null");
+            fail();
+        } catch (final IllegalArgumentInvarianceException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            Invariant.isNull(new Object());
+            fail();
+        } catch (final IllegalArgumentInvarianceException ex) {
+            assertEquals("The validated object is not null", ex.getMessage());
+        }
+    }
+
+    @Test
     public void should_verify_not_empty_array() {
         Invariant.notEmpty(new Object[]{null}, "Must not be %s", "empty");
 

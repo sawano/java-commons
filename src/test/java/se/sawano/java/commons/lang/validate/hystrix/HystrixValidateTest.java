@@ -101,6 +101,32 @@ public class HystrixValidateTest {
     }
 
     @Test
+    public void should_verify_is_null() {
+        HystrixValidate.isNull(null);
+        HystrixValidate.isNull(null, "Should be %s", "null");
+        HystrixValidate.isNull(null, "Should be null");
+
+        try {
+            HystrixValidate.isNull(new Object(), "Should be %s", "null");
+            fail();
+        } catch (final IllegalArgumentHystrixBadRequestException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            HystrixValidate.isNull(new Object(), "Should be null");
+            fail();
+        } catch (final IllegalArgumentHystrixBadRequestException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            HystrixValidate.isNull(new Object());
+            fail();
+        } catch (final IllegalArgumentHystrixBadRequestException ex) {
+            assertEquals("The validated object is not null", ex.getMessage());
+        }
+    }
+
+    @Test
     public void should_verify_not_empty_array() {
         HystrixValidate.notEmpty(new Object[]{null}, "Must not be %s", "empty");
 

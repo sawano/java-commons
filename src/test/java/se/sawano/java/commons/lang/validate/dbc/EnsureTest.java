@@ -98,6 +98,32 @@ public class EnsureTest {
     }
 
     @Test
+    public void should_verify_is_null() {
+        Ensure.isNull(null);
+        Ensure.isNull(null, "Should be %s", "null");
+        Ensure.isNull(null, "Should be null");
+
+        try {
+            Ensure.isNull(new Object(), "Should be %s", "null");
+            fail();
+        } catch (final IllegalArgumentEnsuranceException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            Ensure.isNull(new Object(), "Should be null");
+            fail();
+        } catch (final IllegalArgumentEnsuranceException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            Ensure.isNull(new Object());
+            fail();
+        } catch (final IllegalArgumentEnsuranceException ex) {
+            assertEquals("The validated object is not null", ex.getMessage());
+        }
+    }
+
+    @Test
     public void should_verify_not_empty_array() {
         Ensure.notEmpty(new Object[]{null}, "Must not be %s", "empty");
 

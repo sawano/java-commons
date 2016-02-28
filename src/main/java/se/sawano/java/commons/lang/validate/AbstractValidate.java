@@ -225,6 +225,54 @@ public abstract class AbstractValidate<S extends RuntimeException> {
         }
     }
 
+    // Method without varargs to increase performance
+    public <T> void isNull(final T object, final String message) {
+        if (object != null) {
+            fail(message);
+        }
+    }
+
+    /**
+     * <p>Validate that the specified argument is {@code null}; otherwise throwing an exception.
+     * <pre>Validate.isNull(myObject, "The object must be null");</pre>
+     * <p>The message of the exception is &quot;The validated object is not null&quot;.</p>
+     *
+     * @param <T>
+     *         the object type
+     * @param object
+     *         the object to check
+     *
+     * @throws IllegalArgumentValidationException
+     *         if the object is not {@code null}
+     * @see #isNull(Object, String, Object...)
+     */
+    public <T> void isNull(final T object) {
+        isNull(object, DEFAULT_NOT_NULL_EX_MESSAGE);
+    }
+
+    /**
+     * <p>Validate that the specified argument is {@code null}; otherwise throwing an exception with the specified message.
+     * <pre>Validate.isNull(myObject, "The object must be null");</pre>
+     *
+     * @param <T>
+     *         the object type
+     * @param object
+     *         the object to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @param values
+     *         the optional values for the formatted exception message
+     *
+     * @throws IllegalArgumentValidationException
+     *         if the object is not {@code null}
+     * @see #notNull(Object)
+     */
+    public <T> void isNull(final T object, final String message, final Object... values) {
+        if (object != null) {
+            fail(String.format(message, values));
+        }
+    }
+
     // isTrue
     //---------------------------------------------------------------------------------
 

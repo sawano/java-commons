@@ -98,6 +98,32 @@ public class RequireTest {
     }
 
     @Test
+    public void should_verify_is_null() {
+        Require.isNull(null);
+        Require.isNull(null, "Should be %s", "null");
+        Require.isNull(null, "Should be null");
+
+        try {
+            Require.isNull(new Object(), "Should be %s", "null");
+            fail();
+        } catch (final IllegalArgumentRequirementException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            Require.isNull(new Object(), "Should be null");
+            fail();
+        } catch (final IllegalArgumentRequirementException ex) {
+            assertEquals("Should be null", ex.getMessage());
+        }
+        try {
+            Require.isNull(new Object());
+            fail();
+        } catch (final IllegalArgumentRequirementException ex) {
+            assertEquals("The validated object is not null", ex.getMessage());
+        }
+    }
+
+    @Test
     public void should_verify_not_empty_array() {
         Require.notEmpty(new Object[]{null}, "Must not be %s", "empty");
 
