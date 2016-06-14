@@ -30,10 +30,10 @@ public class Optionals {
     private Optionals() {}
 
     /**
-     * Gets the value of an optional, throwing an exception if no value is present. This can be more convenient than using {@link Optional#orElseThrow(Supplier)}. <br/>E.g. instead of doing:
+     * Gets the value of an optional, throwing an exception if no value is present. This can be more convenient than using {@link Optional#orElseThrow(Supplier)}. <p>E.g. instead of doing:
      * <pre>
      * final Optional&lt;Integer&gt; opt = Optional.of(1);
-     * final Integer value = opt.orElseThrow(() -> new IllegalArgumentException());
+     * final Integer value = opt.orElseThrow(() -&gt; new IllegalArgumentException());
      * </pre>
      * we can do:
      * <pre>
@@ -43,7 +43,7 @@ public class Optionals {
      * Another example is ot insert informative exceptions on missing values in a stream:
      * <pre>
      * final Stream&lt;Optional&lt;T&gt;&gt; optStream = ...;
-     * final Stream&lt;T&gt; stream = optStream.map(t -> Optionals.required(t));
+     * final Stream&lt;T&gt; stream = optStream.map(t -&gt; Optionals.required(t));
      * </pre>
      *
      * @param optional
@@ -64,10 +64,10 @@ public class Optionals {
     }
 
     /**
-     * * Gets the value of an optional, throwing an exception if no value is present. <br/>E.g. instead of doing:
+     * * Gets the value of an optional, throwing an exception if no value is present. <p>E.g. instead of doing:
      * <pre>
      * final Optional&lt;Integer&gt; opt = Optional.of(1);
-     * final Integer value = opt.orElseThrow(() -> new IllegalArgumentException("Value is missing"));
+     * final Integer value = opt.orElseThrow(() -&gt; new IllegalArgumentException("Value is missing"));
      * </pre>
      * we can do:
      * <pre>
@@ -77,7 +77,7 @@ public class Optionals {
      * Another example is ot insert informative exceptions on missing values in a stream:
      * <pre>
      * final Stream&lt;Optional&lt;T&gt;&gt; optStream = ...;
-     * final Stream&lt;T&gt; stream = optStream.map(t -> Optionals.required(t, "Value T is missing"));
+     * final Stream&lt;T&gt; stream = optStream.map(t -&gt; Optionals.required(t, "Value T is missing"));
      * </pre>
      *
      * @param optional
@@ -101,10 +101,10 @@ public class Optionals {
     }
 
     /**
-     * * Gets the value of an optional, throwing an exception if no value is present. <br/>E.g. instead of doing:
+     * * Gets the value of an optional, throwing an exception if no value is present. <p>E.g. instead of doing:
      * <pre>
      * final Optional&lt;Integer&gt; opt = Optional.of(1);
-     * final Integer value = opt.orElseThrow(() -> new IllegalArgumentException("Value is missing. Expected: " + 1));
+     * final Integer value = opt.orElseThrow(() -&gt; new IllegalArgumentException("Value is missing. Expected: " + 1));
      * </pre>
      * we can do:
      * <pre>
@@ -114,7 +114,7 @@ public class Optionals {
      * Another example is ot insert informative exceptions on missing values in a stream:
      * <pre>
      * final Stream&lt;Optional&lt;T&gt;&gt; optStream = ...;
-     * final Stream&lt;T&gt; stream = optStream.map(t -> Optionals.required(t, "Value %s is missing", "T"));
+     * final Stream&lt;T&gt; stream = optStream.map(t -&gt; Optionals.required(t, "Value %s is missing", "T"));
      * </pre>
      *
      * @param optional
