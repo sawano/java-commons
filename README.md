@@ -65,7 +65,7 @@ Central.
 
 Releases are available at the Maven central repository. Or you can just use the source code directly if you prefer that.
 
-The first release of version 2.0 has not been released yet. Please use the latest [v1 release](https://github.com/sawano/java-commons/tree/1.x).
+Note: java-commons v1.x, which is Java 6 compatible, can be found [here](https://github.com/sawano/java-commons/tree/1.x).
 
 [travis]:https://travis-ci.org/sawano/java-commons
 [travis img]:https://travis-ci.org/sawano/java-commons.svg?branch=master
