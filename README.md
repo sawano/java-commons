@@ -60,7 +60,7 @@ Utility methods for working with `java.util.Optional`.
 #### se.sawano.java.commons.lang.Streams
 Utility methods for working with `java.util.stream.Stream`.
 
-#### se.sawano.java.commons.lang.ThrowableFunction and se.sawano.java.commons.lang.ThrowableSupplier
+#### se.sawano.java.commons.lang.ThrowableFunction and ThrowableSupplier
 Functional interfaces that are handy when dealing with legacy code.
 
 ##Java version compatibility
