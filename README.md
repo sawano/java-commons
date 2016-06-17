@@ -57,6 +57,9 @@ An extension of `java.lang.Comparable` that adds readable methods for checking e
 ####se.sawano.java.commons.lang.Optionals
 Utility methods for working with `java.util.Optional`.
 
+#### se.sawano.java.commons.lang.Streams
+Utility methods for working with `java.util.stream.Stream`.
+
 ##Java version compatibility
 As of version 2, java-commons is compiled with Java 8. Java 6 compatible binaries remains in the 1.x branch. I.e. all 1.x versions will continue to be Java 6 compatible and available from Maven
 Central.
