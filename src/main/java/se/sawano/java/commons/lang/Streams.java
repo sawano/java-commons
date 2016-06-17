@@ -28,9 +28,9 @@ public class Streams {
      * A {@link BinaryOperator} that can be used in reduce operations to uphold invariants. For example, to ensure a stream only contains at most one element:
      *
      * <pre>
-     * final Stream<Element> streamOfElements = ...
+     * final Stream&lt;Element&gt; streamOfElements = ...
      * final Long uniqueId = 1L;
-     * final Optional<Element> foundElement = streamOfElements.filter(e -> uniqueId.equals(e.id))
+     * final Optional&lt;Element&gt; foundElement = streamOfElements.filter(e -&gt; uniqueId.equals(e.id))
      *                                                        .reduce(toOnlyOne());
      * </pre>
      *
@@ -47,14 +47,16 @@ public class Streams {
      * A {@link BinaryOperator} that can be used in reduce operations to uphold invariants. For example, to ensure a stream only contains at most one element:
      *
      * <pre>
-     * final Stream<Element> streamOfElements = ...
+     * final Stream&lt;Element&gt; streamOfElements = ...
      * final Long uniqueId = 1L;
-     * final Optional<Element> foundElement = streamOfElements.filter(e -> uniqueId.equals(e.id))
+     * final Optional&lt;Element&gt; foundElement = streamOfElements.filter(e -&gt; uniqueId.equals(e.id))
      *                                                        .reduce(toOnlyOne("Expected only one or none element to match given id"));
      * </pre>
      *
      * @param <T>
      *         the type of the elements in the stream
+     * @param message
+     *         the exception message to use
      *
      * @return nothing, as this method will always throw an {@link se.sawano.java.commons.lang.validate.exception.IllegalStateValidationException}
      */
@@ -69,14 +71,18 @@ public class Streams {
      * A {@link BinaryOperator} that can be used in reduce operations to uphold invariants. For example, to ensure a stream only contains at most one element:
      *
      * <pre>
-     * final Stream<Element> streamOfElements = ...
+     * final Stream&lt;Element&gt; streamOfElements = ...
      * final Long uniqueId = 1L;
-     * final Optional<Element> foundElement = streamOfElements.filter(e -> uniqueId.equals(e.id))
+     * final Optional&lt;Element&gt; foundElement = streamOfElements.filter(e -&gt; uniqueId.equals(e.id))
      *                                                        .reduce(toOnlyOne("Expected only one or none element to match given id: %d", uniqueId));
      * </pre>
      *
      * @param <T>
      *         the type of the elements in the stream
+     * @param message
+     *         the exception message to use
+     * @param values
+     *         the optional values for the formatted exception message, null array not recommended
      *
      * @return nothing, as this method will always throw an {@link se.sawano.java.commons.lang.validate.exception.IllegalStateValidationException}
      */
