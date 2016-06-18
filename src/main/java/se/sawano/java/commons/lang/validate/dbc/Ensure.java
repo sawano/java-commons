@@ -49,11 +49,6 @@ public class Ensure {
     }
 
     // Method without varargs to increase performance
-    public static void isFalse(final boolean expression, final String message) {
-        INSTANCE.isFalse(expression, message);
-    }
-
-    // Method without varargs to increase performance
     public static void isTrue(final boolean expression, final String message) {
         INSTANCE.isTrue(expression, message);
     }
@@ -136,6 +131,27 @@ public class Ensure {
         INSTANCE.isNull(object, message, values);
     }
 
+    public static void isFalse(final boolean expression, final String message, final long value) {
+        INSTANCE.isFalse(expression, message, value);
+    }
+
+    public static void isFalse(final boolean expression, final String message, final double value) {
+        INSTANCE.isFalse(expression, message, value);
+    }
+
+    // Method without varargs to increase performance
+    public static void isFalse(final boolean expression, final String message) {
+        INSTANCE.isFalse(expression, message);
+    }
+
+    public static void isFalse(final boolean expression, final String message, final Object... values) {
+        INSTANCE.isFalse(expression, message, values);
+    }
+
+    public static void isFalse(final boolean expression) {
+        INSTANCE.isFalse(expression);
+    }
+
     public static void isTrue(final boolean expression, final String message, final long value) {
         INSTANCE.isTrue(expression, message, value);
     }
@@ -150,22 +166,6 @@ public class Ensure {
 
     public static void isTrue(final boolean expression) {
         INSTANCE.isTrue(expression);
-    }
-
-    public static void isFalse(final boolean expression, final String message, final long value) {
-        INSTANCE.isFalse(expression, message, value);
-    }
-
-    public static void isFalse(final boolean expression, final String message, final double value) {
-        INSTANCE.isFalse(expression, message, value);
-    }
-
-    public static void isFalse(final boolean expression, final String message, final Object... values) {
-        INSTANCE.isFalse(expression, message, values);
-    }
-
-    public static void isFalse(final boolean expression) {
-        INSTANCE.isFalse(expression);
     }
 
     public static <T> T notNull(final T object) {

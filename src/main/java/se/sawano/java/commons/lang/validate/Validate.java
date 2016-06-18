@@ -44,6 +44,9 @@ public class Validate {
     private Validate() {}
 
     // Custom additional methods
+    //#################################################################################
+
+    // no vararg methods
     //---------------------------------------------------------------------------------
 
     /**
@@ -125,26 +128,6 @@ public class Validate {
     // Method without varargs to increase performance
     public static <T> Class<T> isAssignableFrom(final Class<?> superType, final Class<T> type, final String message) {
         return INSTANCE.isAssignableFrom(superType, type, message);
-    }
-
-    /**
-     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
-     * expression, such as validating a primitive number or using your own custom validation expression.</p>
-     *
-     * @param expression
-     *         the boolean expression to check
-     * @param message
-     *         the exception message if invalid, not null
-     *
-     * @throws IllegalArgumentValidationException
-     *         if expression is {@code true}
-     * @see #isFalse(boolean)
-     * @see #isFalse(boolean, String, long)
-     * @see #isFalse(boolean, String, double)
-     */
-    // Method without varargs to increase performance
-    public static void isFalse(final boolean expression, final String message) {
-        INSTANCE.isFalse(expression, message);
     }
 
     /**
@@ -489,6 +472,9 @@ public class Validate {
         INSTANCE.validState(expression, message);
     }
 
+    // isNull
+    //---------------------------------------------------------------------------------
+
     /**
      * <p>Validate that the specified argument is {@code null}; otherwise throwing an exception with the specified message.
      * <pre>Validate.isNull(myObject, "The object must be null");</pre>
@@ -547,6 +533,117 @@ public class Validate {
     public static <T> void isNull(final T object, final String message, final Object... values) {
         INSTANCE.isNull(object, message, values);
     }
+
+    // isFalse
+    //---------------------------------------------------------------------------------
+
+    /**
+     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p>
+     * <pre>
+     *     Validate.isFalse(age &lt;= 20, "The age must be greater than 20: &#37;d", age);
+     * </pre>
+     * <p>For performance reasons, the long value is passed as a separate parameter and appended to the exception message only in the case of an error.</p>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @param value
+     *         the value to append to the message when invalid
+     *
+     * @throws IllegalArgumentValidationException
+     *         if expression is {@code true}
+     * @see #isFalse(boolean)
+     * @see #isFalse(boolean, String, double)
+     * @see #isFalse(boolean, String, Object...)
+     */
+    public static void isFalse(final boolean expression, final String message, final long value) {
+        INSTANCE.isFalse(expression, message, value);
+    }
+
+    /**
+     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p> <p>For performance reasons, the double value is passed as a separate parameter and appended
+     * to the exception message only in the case of an error.</p>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @param value
+     *         the value to append to the message when invalid
+     *
+     * @throws IllegalArgumentValidationException
+     *         if expression is {@code true}
+     * @see #isFalse(boolean)
+     * @see #isFalse(boolean, String, long)
+     * @see #isFalse(boolean, String, Object...)
+     */
+    public static void isFalse(final boolean expression, final String message, final double value) {
+        INSTANCE.isFalse(expression, message, value);
+    }
+
+    /**
+     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the exception message if invalid, not null
+     *
+     * @throws IllegalArgumentValidationException
+     *         if expression is {@code true}
+     * @see #isFalse(boolean)
+     * @see #isFalse(boolean, String, long)
+     * @see #isFalse(boolean, String, double)
+     */
+    // Method without varargs to increase performance
+    public static void isFalse(final boolean expression, final String message) {
+        INSTANCE.isFalse(expression, message);
+    }
+
+    /**
+     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
+     * expression, such as validating a primitive number or using your own custom validation expression.</p>
+     *
+     * @param expression
+     *         the boolean expression to check
+     * @param message
+     *         the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @param values
+     *         the optional values for the formatted exception message, null array not recommended
+     *
+     * @throws IllegalArgumentValidationException
+     *         if expression is {@code true}
+     * @see #isFalse(boolean)
+     * @see #isFalse(boolean, String, long)
+     * @see #isFalse(boolean, String, double)
+     */
+    public static void isFalse(final boolean expression, final String message, final Object... values) {
+        INSTANCE.isFalse(expression, message, values);
+    }
+
+    /**
+     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception. This method is useful when validating according to an arbitrary boolean expression, such as validating
+     * a primitive number or using your own custom validation expression.</p> <p>The message of the exception is &quot;The validated expression is false&quot;.</p>
+     *
+     * @param expression
+     *         the boolean expression to check
+     *
+     * @throws IllegalArgumentValidationException
+     *         if expression is {@code true}
+     * @see #isFalse(boolean, String, long)
+     * @see #isFalse(boolean, String, double)
+     * @see #isFalse(boolean, String, Object...)
+     */
+    public static void isFalse(final boolean expression) {
+        INSTANCE.isFalse(expression);
+    }
+
+    // End custom additional methods
+    //#################################################################################
 
     // isTrue
     //---------------------------------------------------------------------------------
@@ -644,94 +741,6 @@ public class Validate {
      */
     public static void isTrue(final boolean expression) {
         INSTANCE.isTrue(expression);
-    }
-
-    // isFalse
-    //---------------------------------------------------------------------------------
-
-    /**
-     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
-     * expression, such as validating a primitive number or using your own custom validation expression.</p>
-     * <pre>
-     *     Validate.isFalse(age &lt;= 20, "The age must be greater than 20: &#37;d", age);
-     * </pre>
-     * <p>For performance reasons, the long value is passed as a separate parameter and appended to the exception message only in the case of an error.</p>
-     *
-     * @param expression
-     *         the boolean expression to check
-     * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
-     * @param value
-     *         the value to append to the message when invalid
-     *
-     * @throws IllegalArgumentValidationException
-     *         if expression is {@code true}
-     * @see #isFalse(boolean)
-     * @see #isFalse(boolean, String, double)
-     * @see #isFalse(boolean, String, Object...)
-     */
-    public static void isFalse(final boolean expression, final String message, final long value) {
-        INSTANCE.isFalse(expression, message, value);
-    }
-
-    /**
-     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
-     * expression, such as validating a primitive number or using your own custom validation expression.</p> <p>For performance reasons, the double value is passed as a separate parameter and appended
-     * to the exception message only in the case of an error.</p>
-     *
-     * @param expression
-     *         the boolean expression to check
-     * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
-     * @param value
-     *         the value to append to the message when invalid
-     *
-     * @throws IllegalArgumentValidationException
-     *         if expression is {@code true}
-     * @see #isFalse(boolean)
-     * @see #isFalse(boolean, String, long)
-     * @see #isFalse(boolean, String, Object...)
-     */
-    public static void isFalse(final boolean expression, final String message, final double value) {
-        INSTANCE.isFalse(expression, message, value);
-    }
-
-    /**
-     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception with the specified message. This method is useful when validating according to an arbitrary boolean
-     * expression, such as validating a primitive number or using your own custom validation expression.</p>
-     *
-     * @param expression
-     *         the boolean expression to check
-     * @param message
-     *         the {@link String#format(String, Object...)} exception message if invalid, not null
-     * @param values
-     *         the optional values for the formatted exception message, null array not recommended
-     *
-     * @throws IllegalArgumentValidationException
-     *         if expression is {@code true}
-     * @see #isFalse(boolean)
-     * @see #isFalse(boolean, String, long)
-     * @see #isFalse(boolean, String, double)
-     */
-    public static void isFalse(final boolean expression, final String message, final Object... values) {
-        INSTANCE.isFalse(expression, message, values);
-    }
-
-    /**
-     * <p>Validate that the argument condition is {@code false}; otherwise throwing an exception. This method is useful when validating according to an arbitrary boolean expression, such as validating
-     * a primitive number or using your own custom validation expression.</p> <p>The message of the exception is &quot;The validated expression is false&quot;.</p>
-     *
-     * @param expression
-     *         the boolean expression to check
-     *
-     * @throws IllegalArgumentValidationException
-     *         if expression is {@code true}
-     * @see #isFalse(boolean, String, long)
-     * @see #isFalse(boolean, String, double)
-     * @see #isFalse(boolean, String, Object...)
-     */
-    public static void isFalse(final boolean expression) {
-        INSTANCE.isFalse(expression);
     }
 
     // notNull
