@@ -27,6 +27,7 @@ Some of the differences/enhancements to the Apache Commons functionality are:
 - isFalse() methods
 
     Very useful since you don't need to use negation in your declarations.
+- isNull() methods    
 - All methods that checks a value of some sort will return that value if possible.
 
     This allows for more fluid code as the assertion does not have to be a separate statement.
